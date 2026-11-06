@@ -1,0 +1,38 @@
+/* Gió Lành 7.12 — Nhịp điệu dọc hài hòa, không để khoảng trắng dư.
+   Chỉ sửa khoảng cách, không thay bố cục nội dung hay hiệu ứng lá. */
+:root { --gl-section-gap: clamp(58px,5.5vw,82px); }
+section.section-space { padding-block: var(--gl-section-gap); }
+#phap-thoai.dharma-talk-section {
+  min-height: 0;
+  height: auto;
+  padding-top: clamp(52px,5vw,76px);
+  padding-bottom: 22px;
+}
+#phap-thoai .talk-section-head { margin-bottom: clamp(25px,3vw,38px); }
+#phap-thoai .talk-grid { margin-bottom: clamp(18px,2.5vw,30px); }
+/* Họa tiết không phải lý do để phải nới phần nền trống. */
+#phap-thoai.dharma-talk-section::after {
+  width: 240px;
+  height: 240px;
+  bottom: -118px;
+  left: -96px;
+  box-shadow: 0 0 0 28px rgba(69,105,77,.02);
+}
+#nhac-thien.music-section {
+  padding-top: clamp(32px,3.2vw,46px);
+  margin-top: 0;
+}
+#nhac-thien .music-top { margin-bottom: 27px; }
+@media (min-width:701px) and (max-width:1050px) {
+ :root { --gl-section-gap: 62px; }
+ #phap-thoai.dharma-talk-section {padding-top:56px;padding-bottom:20px;}
+ #nhac-thien.music-section {padding-top:38px;}
+}
+@media (max-width:700px) {
+ :root { --gl-section-gap: 50px; }
+ #phap-thoai.dharma-talk-section {padding-top:48px;padding-bottom:16px;}
+ #phap-thoai .talk-section-head {margin-bottom:27px;}
+ #phap-thoai .talk-grid {margin-bottom:19px;}
+ #phap-thoai.dharma-talk-section::after {display:none;}
+ #nhac-thien.music-section {padding-top:30px;padding-bottom:58px;}
+}

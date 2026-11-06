@@ -1,0 +1,401 @@
+/* Gió Lành 7.5 — Góc pháp thoại: trang đọc tĩnh tại, không có trình phát bài chia sẻ. */
+#phap-thoai.dharma-talk-section {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  padding: clamp(70px, 6vw, 98px) 0 clamp(40px, 4.2vw, 56px);
+  background:
+    radial-gradient(ellipse at 12% 8%, rgba(228, 202, 146, .17), transparent 40%),
+    radial-gradient(ellipse at 98% 88%, rgba(137, 167, 133, .16), transparent 38%),
+    linear-gradient(170deg, #f8f7f0 0%, #faf8f0 42%, #f0f4eb 100%);
+}
+#phap-thoai.dharma-talk-section::before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  top: -235px;
+  right: -155px;
+  width: 535px;
+  height: 535px;
+  border: 1px solid rgba(181, 153, 94, .17);
+  border-radius: 50%;
+  box-shadow: 0 0 0 42px rgba(181, 153, 94, .04), 0 0 0 95px rgba(181, 153, 94, .025);
+  pointer-events: none;
+}
+#phap-thoai.dharma-talk-section::after {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  bottom: -420px;
+  left: -120px;
+  width: 420px;
+  height: 420px;
+  border: 1px solid rgba(69, 105, 77, .13);
+  border-radius: 50%;
+  box-shadow: 0 0 0 28px rgba(69, 105, 77, .022), 0 0 0 72px rgba(69, 105, 77, .015);
+  pointer-events: none;
+}
+#phap-thoai .talk-section-head {
+  max-width: 800px;
+  margin: 0 auto 46px;
+  text-align: center;
+  position: relative;
+}
+#phap-thoai .talk-overline {
+  display: block;
+  font-family: var(--sans, 'Be Vietnam Pro', sans-serif);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 2.4px;
+  color: #9c773f;
+  margin: 0 0 17px;
+}
+#phap-thoai .talk-section-head h2 {
+  font-family: var(--serif, 'Noto Serif', Georgia, serif);
+  font-size: clamp(39px, 4.25vw, 62px);
+  font-style: normal;
+  font-weight: 500;
+  line-height: 1.23;
+  letter-spacing: -.9px;
+  color: #254934;
+  margin: 0;
+}
+#phap-thoai .talk-section-head h2 span { color: #a27a40; font-style: normal; }
+#phap-thoai .talk-title-ornament {
+  display: flex;
+  gap: 13px;
+  justify-content: center;
+  align-items: center;
+  color: #b7985e;
+  margin: 22px 0;
+}
+#phap-thoai .talk-title-ornament::before,
+#phap-thoai .talk-title-ornament::after {
+  content: "";
+  display: block;
+  height: 1px;
+  width: 72px;
+  background: linear-gradient(90deg, transparent, #bc9c5d);
+}
+#phap-thoai .talk-title-ornament::after { transform: rotate(180deg); }
+#phap-thoai .talk-title-ornament svg { width: 32px; height: 26px; stroke: currentColor; stroke-width: 1.7; fill: none; }
+#phap-thoai .talk-section-head p {
+  font-size: clamp(14px, 1.4vw, 16px);
+  line-height: 1.95;
+  color: #60715e;
+  max-width: 690px;
+  margin: 0 auto;
+}
+#phap-thoai .talk-library-label {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 0 0 15px;
+  border-bottom: 1px solid #deded0;
+  margin: 0 0 23px;
+  font-family: var(--sans, 'Be Vietnam Pro', sans-serif);
+}
+#phap-thoai .talk-library-label strong {
+  font-size: 11px;
+  letter-spacing: 1.7px;
+  font-weight: 700;
+  color: #32533c;
+}
+#phap-thoai .talk-library-label span {
+  color: #72806e;
+  font-size: 12px;
+}
+#phap-thoai .talk-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: clamp(14px, 1.8vw, 23px);
+  margin: 0 0 clamp(22px, 3vw, 34px);
+}
+#phap-thoai .talk-card {
+  display: flex;
+  flex-direction: column;
+  padding: 0;
+  min-width: 0;
+  height: 100%;
+  border: 1px solid #e0e1d4;
+  border-radius: 18px;
+  overflow: hidden;
+  text-align: left;
+  color: #294735;
+  background: #fffefa;
+  box-shadow: 0 14px 38px rgba(43, 67, 39, .055);
+  cursor: pointer;
+  transition: border-color .2s ease, box-shadow .2s ease, transform .2s ease;
+}
+#phap-thoai .talk-card:hover {
+  transform: translateY(-4px);
+  border-color: #b9aa80;
+  box-shadow: 0 18px 36px rgba(40, 73, 49, .13);
+}
+#phap-thoai .talk-card.selected {
+  border-color: #c5aa70;
+  box-shadow: 0 0 0 2px rgba(184, 146, 83, .24), 0 16px 35px rgba(40, 73, 49, .1);
+}
+#phap-thoai .talk-card:focus-visible {
+  outline: 3px solid #b38e50;
+  outline-offset: 4px;
+}
+#phap-thoai .talk-card-image {
+  display: block;
+  position: relative;
+  height: clamp(155px, 15.4vw, 205px);
+  overflow: hidden;
+  background: #e8ecde;
+  flex-shrink: 0;
+}
+#phap-thoai .talk-card-image::after {
+  content: "";
+  position: absolute;
+  inset: 65% 0 0;
+  background: linear-gradient(0deg, rgba(29, 51, 33, .22), transparent);
+  pointer-events: none;
+}
+#phap-thoai .talk-card-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform .5s ease;
+}
+#phap-thoai .talk-card:hover .talk-card-image img { transform: scale(1.045); }
+#phap-thoai .talk-card-num {
+  position: absolute;
+  z-index: 2;
+  top: 13px;
+  left: 14px;
+  display: grid;
+  place-items: center;
+  min-width: 36px;
+  height: 34px;
+  border: 1px solid rgba(255, 248, 218, .55);
+  border-radius: 9px;
+  background: rgba(28, 60, 40, .87);
+  color: #fff8e8;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  font-family: var(--sans, sans-serif);
+}
+#phap-thoai .talk-card-body {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  padding: 22px 21px 21px;
+  min-width: 0;
+}
+#phap-thoai .talk-card-body small {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 1.2px;
+  color: #9f7c47;
+  line-height: 1.65;
+}
+#phap-thoai .talk-card-body strong {
+  min-height: 0;
+  margin: 10px 0 9px;
+  color: #264633;
+  font-family: var(--serif, 'Noto Serif', serif);
+  font-size: clamp(17px, 1.5vw, 20px);
+  font-weight: 600;
+  line-height: 1.48;
+}
+#phap-thoai .talk-card-excerpt {
+  display: block;
+  margin: 0 0 19px;
+  color: #687a69;
+  font-family: var(--sans, 'Be Vietnam Pro', sans-serif);
+  font-size: 12px;
+  line-height: 1.9;
+}
+#phap-thoai .talk-card-read {
+  margin-top: auto;
+  padding-top: 15px;
+  border-top: 1px solid #e9e8dc;
+  color: #315941;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: .5px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+#phap-thoai .talk-card-read b { color: #b08a4c; font-size: 18px; line-height: 1; }
+#phap-thoai .talk-detail {
+  display: grid;
+  grid-template-columns: minmax(0, .75fr) minmax(0, 1.25fr);
+  gap: 0;
+  padding: 0;
+  overflow: hidden;
+  background: #fffef9;
+  border: 1px solid #dedcca;
+  border-radius: 25px;
+  box-shadow: 0 24px 65px rgba(40, 71, 45, .095);
+  scroll-margin-top: 95px;
+  align-items: stretch;
+}
+#phap-thoai .talk-detail-image-wrap {
+  position: relative;
+  min-height: 480px;
+  background: #d9ddc6;
+  overflow: hidden;
+}
+#phap-thoai .talk-detail-image-wrap::after {
+  content: "";
+  position: absolute;
+  inset: 35% 0 0;
+  background: linear-gradient(0deg, rgba(25, 44, 31, .76) 0%, rgba(25, 44, 31, .02) 100%);
+  pointer-events: none;
+}
+#phap-thoai .talk-detail #talkDetailImage {
+  width: 100%;
+  height: 100%;
+  max-height: none;
+  min-height: 0;
+  object-fit: cover;
+  display: block;
+  border-radius: 0;
+  position: absolute;
+  inset: 0;
+}
+#phap-thoai .talk-photo-caption {
+  position: absolute;
+  z-index: 1;
+  bottom: 30px;
+  left: 28px;
+  right: 25px;
+  color: #fff9e9;
+  letter-spacing: .65px;
+  line-height: 1.8;
+  font-size: 12px;
+  font-weight: 500;
+  font-family: var(--sans, sans-serif);
+}
+#phap-thoai .talk-photo-caption::before {
+  content: "";
+  display: block;
+  width: 46px;
+  height: 1px;
+  background: #f1d49c;
+  margin-bottom: 12px;
+}
+#phap-thoai .talk-detail-copy {
+  position: relative;
+  padding: clamp(28px, 4.5vw, 65px);
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+#phap-thoai .talk-detail-copy::after {
+  content: "❀";
+  position: absolute;
+  z-index: 0;
+  bottom: -36px;
+  right: 6px;
+  font-size: 175px;
+  line-height: 1;
+  color: rgba(170, 137, 77, .055);
+  pointer-events: none;
+}
+#phap-thoai .talk-detail-copy > * { position: relative; z-index: 1; }
+#phap-thoai .talk-detail-kicker {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  color: #a37e49;
+  font-family: var(--sans, 'Be Vietnam Pro', sans-serif);
+  font-size: 10px;
+  letter-spacing: 2px;
+  font-weight: 700;
+  margin-bottom: 13px;
+}
+#phap-thoai .talk-detail-kicker::before { content: ""; width: 29px; height: 1px; background: #bb9a5c; }
+#phap-thoai .talk-detail h3 {
+  margin: 0;
+  font-family: var(--serif, 'Noto Serif', Georgia, serif);
+  font-size: clamp(26px, 2.6vw, 38px);
+  font-weight: 600;
+  line-height: 1.4;
+  letter-spacing: -.45px;
+  color: #254934;
+}
+#phap-thoai .talk-detail-rule {
+  display: block;
+  width: 70px;
+  height: 2px;
+  background: linear-gradient(90deg, #bc9351, #e5d5ab);
+  margin: 23px 0 20px;
+}
+#phap-thoai .talk-reading-prose p {
+  font-family: var(--serif, 'Noto Serif', Georgia, serif);
+  font-size: clamp(15px, 1.22vw, 16.5px);
+  line-height: 2.06;
+  font-weight: 400;
+  color: #485d4c;
+  margin: 0 0 17px;
+}
+#phap-thoai .talk-reading-prose p:last-child { margin-bottom: 0; }
+#phap-thoai .talk-detail-end {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 9px;
+  color: #bb9860;
+  font-size: 16px;
+  margin-top: 23px;
+  opacity: .8;
+}
+#phap-thoai .talk-detail-end::before,
+#phap-thoai .talk-detail-end::after { content: ""; height: 1px; width: 31px; background: #c7b58f; }
+@media (max-width: 1080px) {
+  #phap-thoai .talk-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  #phap-thoai .talk-card-image { height: 190px; }
+  #phap-thoai .talk-card-body strong { font-size: 20px; }
+  #phap-thoai .talk-detail { grid-template-columns: minmax(0, .8fr) minmax(0, 1.2fr); }
+  #phap-thoai .talk-detail-copy { padding: 33px; }
+}
+@media (max-width: 720px) {
+  #phap-thoai.dharma-talk-section { padding: 62px 0 42px; }
+  #phap-thoai .talk-section-head { margin-bottom: 34px; }
+  #phap-thoai .talk-section-head h2 { font-size: clamp(36px, 9vw, 47px); }
+  #phap-thoai .talk-section-head p { font-size: 13px; }
+  #phap-thoai .talk-library-label { gap: 10px; align-items: baseline; }
+  #phap-thoai .talk-library-label strong { font-size: 10px; letter-spacing: 1px; }
+  #phap-thoai .talk-library-label span { font-size: 10px; text-align: right; }
+  #phap-thoai .talk-grid { grid-template-columns: 1fr; gap: 14px; margin-bottom: 31px; }
+  #phap-thoai .talk-card { display: grid; grid-template-columns: minmax(0, .37fr) minmax(0, .63fr); min-height: 174px; border-radius: 15px; }
+  #phap-thoai .talk-card-image { height: 100%; min-height: 174px; }
+  #phap-thoai .talk-card-image img { position: absolute; inset: 0; }
+  #phap-thoai .talk-card-num { left: 8px; top: 8px; min-width: 28px; height: 27px; font-size: 10px; border-radius: 7px; }
+  #phap-thoai .talk-card-body { padding: 16px 13px; }
+  #phap-thoai .talk-card-body small { font-size: 9px; letter-spacing: .6px; }
+  #phap-thoai .talk-card-body strong { font-size: 16px; margin: 7px 0 7px; line-height: 1.43; }
+  #phap-thoai .talk-card-excerpt { font-size: 11px; line-height: 1.65; margin-bottom: 9px; }
+  #phap-thoai .talk-card-read { font-size: 10px; padding-top: 9px; }
+  #phap-thoai .talk-detail { display: flex; flex-direction: column; border-radius: 18px; }
+  #phap-thoai .talk-detail-image-wrap { flex: 0 0 auto; min-height: 0; width: 100%; aspect-ratio: 1.75; }
+  #phap-thoai .talk-photo-caption { bottom: 12px; left: 16px; right: 15px; font-size: 10px; }
+  #phap-thoai .talk-photo-caption::before { margin-bottom: 5px; width: 25px; }
+  #phap-thoai .talk-detail-copy { padding: 26px 21px 29px; }
+  #phap-thoai .talk-detail h3 { font-size: clamp(25px, 6.4vw, 33px); }
+  #phap-thoai .talk-detail-rule { margin: 17px 0 15px; }
+  #phap-thoai .talk-reading-prose p { font-size: 15px; line-height: 1.95; }
+}
+@media (max-width: 350px) {
+  #phap-thoai .talk-card { grid-template-columns: 36% 64%; }
+  #phap-thoai .talk-card-body { padding: 12px 10px; }
+  #phap-thoai .talk-card-body strong { font-size: 15px; }
+  #phap-thoai .talk-card-excerpt { font-size: 10px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  #phap-thoai .talk-card, #phap-thoai .talk-card-image img { transition: none; }
+  #phap-thoai .talk-card:hover { transform: none; }
+  #phap-thoai .talk-card:hover .talk-card-image img { transform: none; }
+}

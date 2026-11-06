@@ -1,0 +1,27 @@
+/* Gió Lành 7.11 · Lá bồ đề rơi thật chậm, trang nhã và không chắn thao tác. */
+.gio-bodhi-rain {position:fixed;inset:0;overflow:hidden;z-index:32;pointer-events:none;user-select:none;contain:strict;}
+.gio-bodhi-rain[hidden] {display:none!important}
+.gio-bodhi-leaf {position:absolute;left:var(--left);top:0;width:var(--size);height:calc(var(--size) * 1.16);color:#aa9463;opacity:0;will-change:transform,opacity;animation:gioBodhiFall var(--duration) linear var(--delay) infinite;transform-origin:50% 50%;}
+.gio-bodhi-leaf svg {display:block;width:100%;height:100%;overflow:visible;filter:drop-shadow(0 1px 1px rgba(60,74,43,.08))}
+.gio-bodhi-leaf:nth-child(3n+1){color:#aa8548}
+.gio-bodhi-leaf:nth-child(3n+2){color:#6b8a60}
+.gio-bodhi-leaf:nth-child(3n){color:#b3a063}
+.gio-bodhi-leaf .leaf-shape{fill:currentColor;fill-opacity:.89;stroke:currentColor;stroke-width:1.4}
+.gio-bodhi-leaf .leaf-veins{fill:none;stroke:#fff7d5;stroke-opacity:.40;stroke-width:2;stroke-linecap:round}
+.gio-bodhi-rain.is-paused .gio-bodhi-leaf{animation-play-state:paused}
+@keyframes gioBodhiFall{
+  0%   {opacity:0;transform:translate3d(0,-18vh,0) rotate(-28deg)}
+  9%   {opacity:.23}
+  24%  {transform:translate3d(var(--sway),18vh,0) rotate(10deg)}
+  49%  {transform:translate3d(calc(var(--sway) * -0.66),56vh,0) rotate(45deg)}
+  73%  {transform:translate3d(var(--sway),90vh,0) rotate(77deg)}
+  90%  {opacity:.20}
+  100% {opacity:0;transform:translate3d(calc(var(--sway) * -.25),120vh,0) rotate(125deg)}
+}
+/* Công tắc nhỏ nằm ở chân trang; hiệu ứng là tùy chọn, không làm thay đổi bố cục chính. */
+#gioLeafToggle {font:inherit;color:#557756;background:transparent;border:0;text-decoration:underline;text-underline-offset:3px;text-decoration-color:#bbc7af;cursor:pointer;margin-left:7px;padding:3px 2px;white-space:nowrap}
+#gioLeafToggle:hover {color:#2b5638;text-decoration-color:currentColor}
+#gioLeafToggle:focus-visible {outline:2px solid #a9844b;outline-offset:3px;border-radius:3px}
+@media (max-width:960px){.gio-bodhi-leaf:nth-child(n+9){display:none}}
+@media (max-width:650px){.gio-bodhi-leaf:nth-child(n+6){display:none}.gio-bodhi-leaf{max-width:28px}#gioLeafToggle{margin-left:5px}}
+@media (prefers-reduced-motion:reduce){.gio-bodhi-rain,#gioLeafToggle{display:none!important}}

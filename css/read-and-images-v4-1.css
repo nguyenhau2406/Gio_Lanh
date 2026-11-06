@@ -1,0 +1,22 @@
+
+/* Gió Lành 4.1 — đọc kinh rõ ràng, ảnh minh họa theo từng bài */
+.hero-controls{display:none!important}
+.reading-howto{display:flex;gap:14px;align-items:flex-start;background:#fffdf5;border:1px solid #dcdac9;border-left:4px solid #8da279;border-radius:12px;padding:16px 19px;margin:0 0 21px;box-shadow:0 4px 18px rgba(41,64,38,.035)}
+.reading-howto-icon{font-size:24px;line-height:1.2}
+.reading-howto strong{display:block;font-size:16px;color:#30553b;margin-bottom:5px}
+.reading-howto p{font-size:13px;color:#526456;line-height:1.75;margin:0}
+.reading-howto b{color:#345f42}
+.sutra-cover-button{position:absolute;inset:0;width:100%;height:100%;padding:0;margin:0;background:transparent;border:none;cursor:pointer;z-index:1}
+.sutra-cover-button:focus-visible{outline:3px solid #e1b45e;outline-offset:-5px}
+.sutra-badge{pointer-events:none;z-index:2}
+.sutra-title-button{font:inherit;color:inherit;text-align:left;background:none;border:0;padding:0;cursor:pointer;line-height:inherit;letter-spacing:inherit}
+.sutra-title-button:hover,.sutra-title-button:focus-visible{color:#548465;text-decoration:underline;text-underline-offset:4px}
+.sutra-card-actions{display:grid;grid-template-columns:minmax(0,1fr) 44px;grid-template-rows:auto auto;gap:0px 8px;align-items:center;border-top:1px solid #e9e9df;padding-top:10px}
+.sutra-card-actions .sutra-read{grid-column:1;grid-row:1;padding:5px 0;min-height:31px;color:#25543b;font-size:13px;text-align:left;white-space:normal;line-height:1.4}
+.sutra-card-actions .sutra-read:hover{text-decoration:underline;text-underline-offset:3px}
+.sutra-source-link{grid-column:1;grid-row:2;display:inline-flex;align-items:center;min-height:30px;font-weight:700;font-size:12px;color:#98703c;text-decoration:none;line-height:1.5}
+.sutra-source-link:hover{text-decoration:underline;text-underline-offset:3px}
+.sutra-card-actions .sutra-save{grid-column:2;grid-row:1 / 3;justify-self:end}
+.sutra-card:hover .sutra-cover img{transform:scale(1.025)}
+@media(max-width:650px){.reading-howto{padding:13px 14px;gap:11px;margin-bottom:17px}.reading-howto strong{font-size:14px}.reading-howto p{font-size:12px}.reading-howto-icon{font-size:21px}.sutra-card{min-height:181px}.sutra-card-actions{grid-template-columns:minmax(0,1fr) 36px;gap:0 4px;padding-top:3px}.sutra-card-actions .sutra-read{font-size:11px;min-height:26px;padding:3px 0}.sutra-source-link{font-size:10.5px;min-height:25px}.sutra-card-actions .sutra-save{width:35px;height:35px;min-width:35px}.sutra-card h3{line-height:1.35}}
+@media(max-width:360px){.sutra-cover{min-width:94px;width:29%}.sutra-card-body{padding:11px}.sutra-source-link{font-size:10px}}

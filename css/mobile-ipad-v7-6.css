@@ -1,0 +1,107 @@
+/* Gió Lành 7.6 — responsive refinements: mobile, iPad portrait/landscape.
+   Applied after all prior CSS; preserves source content and desktop design. */
+@media (max-width:1180px) {
+  .site-header .desktop-nav {display:none!important;}
+  .site-header .mobile-menu-button {display:grid!important;place-items:center;min-width:46px;min-height:46px;}
+  .site-header .mobile-nav {display:flex;flex-direction:column;background:#fffcf4;border-top:1px solid #e7e8dc;padding:10px clamp(20px,5vw,35px) 23px;}
+  .site-header .mobile-nav[hidden] {display:none!important;}
+  .site-header .mobile-nav a {display:flex;align-items:center;min-height:49px;font-size:15px;font-weight:600;line-height:1.5;}
+  .site-header .header-inner {height:76px;}
+  .site-header .icon-button {min-width:44px;min-height:44px;}
+  .site-header .brand {flex-basis:195px;}
+  .site-header .brand img {width:195px;max-width:100%;}
+  #phap-thoai .talk-grid {grid-template-columns:repeat(2,minmax(0,1fr));gap:20px;}
+  #phap-thoai .talk-card-image {height:210px;}
+  #phap-thoai .talk-card-body {padding:22px 24px;}
+  #phap-thoai .talk-card-body small {font-size:11px;}
+  #phap-thoai .talk-card-body strong {font-size:21px;line-height:1.45;}
+  #phap-thoai .talk-card-excerpt {font-size:14px;line-height:1.75;}
+  #phap-thoai .talk-card-read {font-size:12px;min-height:47px;}
+  #phap-thoai .talk-section-head p {font-size:16px;line-height:1.85;}
+  #phap-thoai .talk-library-label span {font-size:13px;}
+}
+/* iPad in portrait: image above the reading panel to give the words full width. */
+@media (min-width:700px) and (max-width:1050px) and (orientation:portrait) {
+  #phap-thoai .talk-detail {display:flex;flex-direction:column;}
+  #phap-thoai .talk-detail-image-wrap {width:100%;min-height:0;aspect-ratio:2.15/1;}
+  #phap-thoai .talk-detail #talkDetailImage {object-position:center 45%;}
+  #phap-thoai .talk-photo-caption {left:28px;bottom:19px;font-size:13px;}
+  #phap-thoai .talk-detail-copy {width:100%;padding:36px clamp(40px,7.5vw,68px) 46px;}
+  #phap-thoai .talk-detail h3 {font-size:35px;}
+  #phap-thoai .talk-reading-prose p {font-size:18px;line-height:2;}
+  #phap-thoai .talk-detail-kicker {font-size:11px;}
+}
+/* iPad landscape: retain a two-panel reader with breathing room. */
+@media (min-width:1000px) and (max-width:1180px) and (orientation:landscape) {
+  #phap-thoai .talk-detail {grid-template-columns:minmax(0,.74fr) minmax(0,1.26fr);}
+  #phap-thoai .talk-detail-copy {padding:36px 38px;}
+  #phap-thoai .talk-reading-prose p {font-size:17px;line-height:1.9;}
+  #phap-thoai .talk-detail-image-wrap {min-height:460px;}
+}
+/* Larger phones and small tablets, from 600px to 699px. */
+@media (min-width:600px) and (max-width:699px) {
+  #phap-thoai .talk-grid {grid-template-columns:repeat(2,minmax(0,1fr));gap:15px;}
+  #phap-thoai .talk-card {display:flex;flex-direction:column;min-height:100%;}
+  #phap-thoai .talk-card-image {height:155px;min-height:0;}
+  #phap-thoai .talk-card-body {padding:18px;}
+  #phap-thoai .talk-card-body strong {font-size:18px;}
+  #phap-thoai .talk-card-excerpt {font-size:13px;}
+}
+@media (max-width:699px) {
+  #phap-thoai.dharma-talk-section {padding:61px 0 74px;}
+  #phap-thoai .container {width:calc(100% - 32px);}
+  #phap-thoai .talk-section-head {margin-bottom:29px;}
+  #phap-thoai .talk-section-head h2 {font-size:clamp(35px,8.5vw,46px);line-height:1.24;letter-spacing:-.45px;}
+  #phap-thoai .talk-section-head p {font-size:15px;line-height:1.85;}
+  #phap-thoai .talk-overline {font-size:10px;letter-spacing:1.5px;}
+  #phap-thoai .talk-title-ornament {margin:17px 0;}
+  #phap-thoai .talk-library-label {align-items:flex-start;flex-direction:column;gap:3px;margin-bottom:19px;}
+  #phap-thoai .talk-library-label strong {font-size:11px;letter-spacing:1px;}
+  #phap-thoai .talk-library-label span {font-size:13px;text-align:left;}
+  #phap-thoai .talk-grid {gap:15px;margin-bottom:31px;}
+  #phap-thoai .talk-card {border-radius:17px;touch-action:manipulation;}
+  #phap-thoai .talk-card:focus-visible {outline-offset:2px;}
+  #phap-thoai .talk-card-num {top:11px;left:11px;min-width:34px;height:33px;font-size:11px;}
+  #phap-thoai .talk-card-body small {font-size:10.5px;letter-spacing:.45px;line-height:1.5;}
+  #phap-thoai .talk-card-body strong {font-size:18px;line-height:1.42;margin:7px 0 9px;}
+  #phap-thoai .talk-card-excerpt {font-size:13px;line-height:1.72;}
+  #phap-thoai .talk-card-read {font-size:11.5px;min-height:44px;padding:8px 0 0;letter-spacing:.1px;}
+  #phap-thoai .talk-detail {border-radius:18px;display:flex;flex-direction:column;scroll-margin-top:86px;}
+  #phap-thoai .talk-detail-image-wrap {width:100%;min-height:0;aspect-ratio:1.75/1;}
+  #phap-thoai .talk-photo-caption {font-size:11px;left:17px;bottom:14px;line-height:1.5;}
+  #phap-thoai .talk-detail-copy {padding:29px 24px 32px;width:100%;}
+  #phap-thoai .talk-detail h3 {font-size:clamp(27px,7vw,33px);line-height:1.36;}
+  #phap-thoai .talk-detail-kicker {font-size:10px;letter-spacing:1px;}
+  #phap-thoai .talk-detail-rule {margin:20px 0;}
+  #phap-thoai .talk-reading-prose p {font-size:17px;line-height:1.92;margin-bottom:18px;overflow-wrap:break-word;}
+  #phap-thoai .talk-detail-end {margin-top:25px;}
+  .site-header .brand {flex-basis:162px;}
+  .site-header .brand img {width:162px;}
+  .site-header .header-inner {height:70px;}
+  .site-header .mobile-nav a {font-size:15px;}
+  .search-box input, .chant-section #chantChoice, .chant-section #chantText {font-size:16px;}
+  .chant-section .chant-actions .btn {min-height:48px;font-size:13px;}
+}
+@media (max-width:599px) {
+  #phap-thoai .talk-grid {grid-template-columns:1fr;}
+  #phap-thoai .talk-card {display:grid;grid-template-columns:minmax(0,36%) minmax(0,64%);min-height:217px;}
+  #phap-thoai .talk-card-image {height:100%;min-height:217px;position:relative;}
+  #phap-thoai .talk-card-image img {position:absolute;inset:0;width:100%;height:100%;}
+  #phap-thoai .talk-card-body {padding:16px 15px;min-width:0;}
+  #phap-thoai .talk-card-excerpt {margin-bottom:4px;}
+}
+@media (max-width:365px) {
+  #phap-thoai .container {width:calc(100% - 26px);}
+  #phap-thoai .talk-card {display:flex;flex-direction:column;min-height:0;}
+  #phap-thoai .talk-card-image {width:100%;height:138px;min-height:0;}
+  #phap-thoai .talk-card-body {padding:17px 19px;}
+  #phap-thoai .talk-card-excerpt {font-size:13px;}
+  #phap-thoai .talk-card-read {margin-top:11px;}
+  #phap-thoai .talk-detail-copy {padding:24px 18px 28px;}
+  #phap-thoai .talk-reading-prose p {font-size:16px;line-height:1.88;}
+}
+@media (hover:none) {
+  #phap-thoai .talk-card:hover {transform:none;}
+  #phap-thoai .talk-card:hover .talk-card-image img {transform:none;}
+}
+@media (prefers-reduced-motion:reduce) { #phap-thoai .talk-detail {scroll-behavior:auto;} }

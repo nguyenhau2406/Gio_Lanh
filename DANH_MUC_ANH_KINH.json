@@ -1,0 +1,583 @@
+[
+  {
+    "id": "phap-cu",
+    "title": "Kinh Pháp Cú",
+    "theme": "teaching",
+    "art_source": "v2_1_2",
+    "file": "assets/kinh/phap-cu.webp"
+  },
+  {
+    "id": "tu-bi",
+    "title": "Kinh Từ Bi",
+    "theme": "lotus",
+    "art_source": "lotus_dew",
+    "file": "assets/kinh/tu-bi.webp"
+  },
+  {
+    "id": "chuyen-phap-luan",
+    "title": "Kinh Chuyển Pháp Luân",
+    "theme": "teaching",
+    "art_source": "buddha_stone",
+    "file": "assets/kinh/chuyen-phap-luan.webp"
+  },
+  {
+    "id": "niem-xu",
+    "title": "Kinh Niệm Xứ",
+    "theme": "mindful",
+    "art_source": "bodhi_leaf",
+    "file": "assets/kinh/niem-xu.webp"
+  },
+  {
+    "id": "nhap-tuc-xuat-tuc",
+    "title": "Kinh Quán niệm hơi thở",
+    "theme": "bodhi",
+    "art_source": "v2_1_2",
+    "file": "assets/kinh/nhap-tuc-xuat-tuc.webp"
+  },
+  {
+    "id": "hanh-phuc",
+    "title": "Kinh Hạnh Phúc",
+    "theme": "sunrise",
+    "art_source": "v2_0_2",
+    "file": "assets/kinh/hanh-phuc.webp"
+  },
+  {
+    "id": "sang-binh-an",
+    "title": "Thời kinh buổi sáng – Khởi đầu an lành",
+    "theme": "sunrise",
+    "art_source": "mountain_temple",
+    "file": "assets/kinh/sang-binh-an.webp"
+  },
+  {
+    "id": "toi-lang-tam",
+    "title": "Thời kinh buổi tối – Nhìn lại một ngày",
+    "theme": "evening",
+    "art_source": "temple_bell",
+    "file": "assets/kinh/toi-lang-tam.webp"
+  },
+  {
+    "id": "niem-phat-truoc-ngu",
+    "title": "Niệm Phật trước khi ngủ",
+    "theme": "buddha",
+    "art_source": "v2_1_2",
+    "file": "assets/kinh/niem-phat-truoc-ngu.webp"
+  },
+  {
+    "id": "tu-bi-truoc-ngu",
+    "title": "Quán tâm từ trước khi ngủ",
+    "theme": "lotus",
+    "art_source": "v1_0_0",
+    "file": "assets/kinh/tu-bi-truoc-ngu.webp"
+  },
+  {
+    "id": "hoi-huong-cong-duc",
+    "title": "Bài kệ hồi hướng công đức",
+    "theme": "lotus",
+    "art_source": "v3_0_0",
+    "file": "assets/kinh/hoi-huong-cong-duc.webp"
+  },
+  {
+    "id": "hoi-huong-ong-ba",
+    "title": "Hồi hướng đến ông bà, cha mẹ và người thân",
+    "theme": "family",
+    "art_source": "v3_0_1",
+    "file": "assets/kinh/hoi-huong-ong-ba.webp"
+  },
+  {
+    "id": "hoi-huong-chung-sinh",
+    "title": "Hồi hướng đến tất cả chúng sinh",
+    "theme": "allbeings",
+    "art_source": "v1_0_2",
+    "file": "assets/kinh/hoi-huong-chung-sinh.webp"
+  },
+  {
+    "id": "sam-hoi-buoi-toi",
+    "title": "Sám hối cuối ngày",
+    "theme": "evening",
+    "art_source": "v3_1_2",
+    "file": "assets/kinh/sam-hoi-buoi-toi.webp"
+  },
+  {
+    "id": "tam-quy-y",
+    "title": "Tam quy y",
+    "theme": "buddha",
+    "art_source": "buddha_stone",
+    "file": "assets/kinh/tam-quy-y.webp"
+  },
+  {
+    "id": "ngu-gioi",
+    "title": "Năm giới của người cư sĩ",
+    "theme": "teaching",
+    "art_source": "buddha_stone",
+    "file": "assets/kinh/ngu-gioi.webp"
+  },
+  {
+    "id": "bon-loi-nguyen-lon",
+    "title": "Bốn lời nguyện rộng lớn",
+    "theme": "sunrise",
+    "art_source": "mountain_temple",
+    "file": "assets/kinh/bon-loi-nguyen-lon.webp"
+  },
+  {
+    "id": "bat-nha-buoi-toi",
+    "title": "Tụng Bát Nhã Tâm Kinh buổi tối",
+    "theme": "bell",
+    "art_source": "mountain_temple",
+    "file": "assets/kinh/bat-nha-buoi-toi.webp"
+  },
+  {
+    "id": "chu-dai-bi",
+    "title": "Chú Đại Bi",
+    "theme": "guanyin",
+    "art_source": "v1_1_1",
+    "file": "assets/kinh/chu-dai-bi.webp"
+  },
+  {
+    "id": "chu-lang-nghiem",
+    "title": "Chú Lăng Nghiêm",
+    "theme": "temple",
+    "art_source": "v3_1_2",
+    "file": "assets/kinh/chu-lang-nghiem.webp"
+  },
+  {
+    "id": "luc-tu-dai-minh",
+    "title": "Lục Tự Đại Minh Chân Ngôn",
+    "theme": "guanyin",
+    "art_source": "v2_1_1",
+    "file": "assets/kinh/luc-tu-dai-minh.webp"
+  },
+  {
+    "id": "chu-chuan-de",
+    "title": "Chú Chuẩn Đề",
+    "theme": "guanyin",
+    "art_source": "v3_1_1",
+    "file": "assets/kinh/chu-chuan-de.webp"
+  },
+  {
+    "id": "chu-vang-sanh",
+    "title": "Chú Vãng Sinh",
+    "theme": "lotus",
+    "art_source": "v1_0_0",
+    "file": "assets/kinh/chu-vang-sanh.webp"
+  },
+  {
+    "id": "chu-duoc-su",
+    "title": "Chú Dược Sư",
+    "theme": "buddha",
+    "art_source": "v1_1_2",
+    "file": "assets/kinh/chu-duoc-su.webp"
+  },
+  {
+    "id": "tam-kinh",
+    "title": "Bát Nhã Tâm Kinh",
+    "theme": "bodhi",
+    "art_source": "bodhi_leaf",
+    "file": "assets/kinh/tam-kinh.webp"
+  },
+  {
+    "id": "kim-cang",
+    "title": "Kinh Kim Cang",
+    "theme": "scripture",
+    "art_source": "temple_bell",
+    "file": "assets/kinh/kim-cang.webp"
+  },
+  {
+    "id": "phap-hoa",
+    "title": "Kinh Diệu Pháp Liên Hoa (Kinh Pháp Hoa)",
+    "theme": "lotus",
+    "art_source": "lotus_dew",
+    "file": "assets/kinh/phap-hoa.webp"
+  },
+  {
+    "id": "pho-mon",
+    "title": "Kinh Phổ Môn – Phẩm Quán Thế Âm",
+    "theme": "guanyin",
+    "art_source": "v3_1_1",
+    "file": "assets/kinh/pho-mon.webp"
+  },
+  {
+    "id": "a-di-da",
+    "title": "Kinh A Di Đà",
+    "theme": "buddha",
+    "art_source": "v1_1_2",
+    "file": "assets/kinh/a-di-da.webp"
+  },
+  {
+    "id": "vo-luong-tho",
+    "title": "Kinh Vô Lượng Thọ",
+    "theme": "sunrise",
+    "art_source": "v2_0_2",
+    "file": "assets/kinh/vo-luong-tho.webp"
+  },
+  {
+    "id": "quan-vo-luong-tho",
+    "title": "Kinh Quán Vô Lượng Thọ",
+    "theme": "sunrise",
+    "art_source": "mountain_temple",
+    "file": "assets/kinh/quan-vo-luong-tho.webp"
+  },
+  {
+    "id": "dia-tang",
+    "title": "Kinh Địa Tạng Bồ Tát Bổn Nguyện",
+    "theme": "buddha",
+    "art_source": "v1_1_2",
+    "file": "assets/kinh/dia-tang.webp"
+  },
+  {
+    "id": "duoc-su",
+    "title": "Kinh Dược Sư",
+    "theme": "lotus",
+    "art_source": "lotus_dew",
+    "file": "assets/kinh/duoc-su.webp"
+  },
+  {
+    "id": "hoa-nghiem",
+    "title": "Kinh Đại Phương Quảng Phật Hoa Nghiêm",
+    "theme": "temple",
+    "art_source": "v3_1_2",
+    "file": "assets/kinh/hoa-nghiem.webp"
+  },
+  {
+    "id": "pho-hien-hanh-nguyen",
+    "title": "Phẩm Phổ Hiền Hạnh Nguyện",
+    "theme": "sunrise",
+    "art_source": "v2_0_2",
+    "file": "assets/kinh/pho-hien-hanh-nguyen.webp"
+  },
+  {
+    "id": "lang-nghiem",
+    "title": "Kinh Thủ Lăng Nghiêm",
+    "theme": "scripture",
+    "art_source": "mountain_temple",
+    "file": "assets/kinh/lang-nghiem.webp"
+  },
+  {
+    "id": "duy-ma-cat",
+    "title": "Kinh Duy Ma Cật",
+    "theme": "teaching",
+    "art_source": "buddha_stone",
+    "file": "assets/kinh/duy-ma-cat.webp"
+  },
+  {
+    "id": "vien-giac",
+    "title": "Kinh Viên Giác",
+    "theme": "bodhi",
+    "art_source": "bamboo_path",
+    "file": "assets/kinh/vien-giac.webp"
+  },
+  {
+    "id": "lang-gia",
+    "title": "Kinh Lăng Già",
+    "theme": "temple",
+    "art_source": "mountain_temple",
+    "file": "assets/kinh/lang-gia.webp"
+  },
+  {
+    "id": "bat-dai-nhan-giac",
+    "title": "Kinh Bát Đại Nhân Giác",
+    "theme": "mindful",
+    "art_source": "v1_0_2",
+    "file": "assets/kinh/bat-dai-nhan-giac.webp"
+  },
+  {
+    "id": "tu-thap-nhi-chuong",
+    "title": "Kinh Tứ Thập Nhị Chương",
+    "theme": "scripture",
+    "art_source": "mountain_temple",
+    "file": "assets/kinh/tu-thap-nhi-chuong.webp"
+  },
+  {
+    "id": "di-giao",
+    "title": "Kinh Di Giáo",
+    "theme": "teaching",
+    "art_source": "v2_1_2",
+    "file": "assets/kinh/di-giao.webp"
+  },
+  {
+    "id": "thang-man",
+    "title": "Kinh Thắng Man",
+    "theme": "lotus",
+    "art_source": "v2_0_0",
+    "file": "assets/kinh/thang-man.webp"
+  },
+  {
+    "id": "dai-bat-niet-ban",
+    "title": "Kinh Đại Bát Niết Bàn (Đại thừa)",
+    "theme": "buddha",
+    "art_source": "buddha_stone",
+    "file": "assets/kinh/dai-bat-niet-ban.webp"
+  },
+  {
+    "id": "bao-tich",
+    "title": "Kinh Đại Bảo Tích",
+    "theme": "temple",
+    "art_source": "mountain_temple",
+    "file": "assets/kinh/bao-tich.webp"
+  },
+  {
+    "id": "phap-bao-dan",
+    "title": "Pháp Bảo Đàn Kinh",
+    "theme": "monk",
+    "art_source": "v2_0_2",
+    "file": "assets/kinh/phap-bao-dan.webp"
+  },
+  {
+    "id": "kala-ma",
+    "title": "Kinh Kālāma",
+    "theme": "teaching",
+    "art_source": "v1_1_2",
+    "file": "assets/kinh/kala-ma.webp"
+  },
+  {
+    "id": "giao-tho-thi-ca-la-viet",
+    "title": "Kinh Giáo thọ Thi-ca-la-việt",
+    "theme": "family",
+    "art_source": "v2_0_1",
+    "file": "assets/kinh/giao-tho-thi-ca-la-viet.webp"
+  },
+  {
+    "id": "dai-bat-niet-ban-pali",
+    "title": "Kinh Đại Bát Niết Bàn (Trường Bộ)",
+    "theme": "buddha",
+    "art_source": "v2_1_2",
+    "file": "assets/kinh/dai-bat-niet-ban-pali.webp"
+  },
+  {
+    "id": "dai-niem-xu",
+    "title": "Kinh Đại Niệm Xứ",
+    "theme": "mindful",
+    "art_source": "v1_0_2",
+    "file": "assets/kinh/dai-niem-xu.webp"
+  },
+  {
+    "id": "sa-mon-qua",
+    "title": "Kinh Sa-môn Quả",
+    "theme": "monk",
+    "art_source": "v2_0_2",
+    "file": "assets/kinh/sa-mon-qua.webp"
+  },
+  {
+    "id": "vo-nga-tuong",
+    "title": "Kinh Vô Ngã Tướng",
+    "theme": "bodhi",
+    "art_source": "v2_1_2",
+    "file": "assets/kinh/vo-nga-tuong.webp"
+  },
+  {
+    "id": "kinh-lua-chay",
+    "title": "Kinh Lửa Cháy",
+    "theme": "sunrise",
+    "art_source": "v2_0_2",
+    "file": "assets/kinh/kinh-lua-chay.webp"
+  },
+  {
+    "id": "nhan-duyen",
+    "title": "Kinh Phân Biệt Duyên Khởi",
+    "theme": "bodhi",
+    "art_source": "bamboo_path",
+    "file": "assets/kinh/nhan-duyen.webp"
+  },
+  {
+    "id": "nam-dieu-quan-niem",
+    "title": "Kinh Năm Điều Quán Niệm",
+    "theme": "mindful",
+    "art_source": "bamboo_path",
+    "file": "assets/kinh/nam-dieu-quan-niem.webp"
+  },
+  {
+    "id": "nhat-da-hien-gia",
+    "title": "Kinh Nhất Dạ Hiền Giả",
+    "theme": "evening",
+    "art_source": "temple_bell",
+    "file": "assets/kinh/nhat-da-hien-gia.webp"
+  },
+  {
+    "id": "giao-gioi-la-hau-la",
+    "title": "Kinh Giáo Giới La-hầu-la ở Rừng Am-ba-la",
+    "theme": "family",
+    "art_source": "v2_0_1",
+    "file": "assets/kinh/giao-gioi-la-hau-la.webp"
+  },
+  {
+    "id": "giao-gioi-la-hau-la-lon",
+    "title": "Đại Kinh Giáo Giới La-hầu-la",
+    "theme": "family",
+    "art_source": "v1_0_1",
+    "file": "assets/kinh/giao-gioi-la-hau-la-lon.webp"
+  },
+  {
+    "id": "vi-du-cai-cua",
+    "title": "Kinh Ví Dụ Cái Cưa",
+    "theme": "teaching",
+    "art_source": "v1_1_2",
+    "file": "assets/kinh/vi-du-cai-cua.webp"
+  },
+  {
+    "id": "song-tam",
+    "title": "Kinh Song Tầm",
+    "theme": "mindful",
+    "art_source": "bamboo_path",
+    "file": "assets/kinh/song-tam.webp"
+  },
+  {
+    "id": "an-tru-tam",
+    "title": "Kinh An Trú Tầm",
+    "theme": "bodhi",
+    "art_source": "bodhi_leaf",
+    "file": "assets/kinh/an-tru-tam.webp"
+  },
+  {
+    "id": "tat-ca-lau-hoac",
+    "title": "Kinh Tất Cả Lậu Hoặc",
+    "theme": "mindful",
+    "art_source": "bamboo_path",
+    "file": "assets/kinh/tat-ca-lau-hoac.webp"
+  },
+  {
+    "id": "vi-du-tam",
+    "title": "Kinh Ví Dụ Tấm Vải",
+    "theme": "lotus",
+    "art_source": "lotus_dew",
+    "file": "assets/kinh/vi-du-tam.webp"
+  },
+  {
+    "id": "chinh-kien",
+    "title": "Kinh Chánh Tri Kiến",
+    "theme": "teaching",
+    "art_source": "v1_1_2",
+    "file": "assets/kinh/chinh-kien.webp"
+  },
+  {
+    "id": "trung-dao",
+    "title": "Kinh Trung Đạo",
+    "theme": "mindful",
+    "art_source": "bodhi_leaf",
+    "file": "assets/kinh/trung-dao.webp"
+  },
+  {
+    "id": "phan-biet-su-that",
+    "title": "Kinh Phân Biệt Sự Thật",
+    "theme": "teaching",
+    "art_source": "v2_1_2",
+    "file": "assets/kinh/phan-biet-su-that.webp"
+  },
+  {
+    "id": "dai-kinh-bon-muoi",
+    "title": "Đại Kinh Bốn Mươi",
+    "theme": "teaching",
+    "art_source": "v1_1_2",
+    "file": "assets/kinh/dai-kinh-bon-muoi.webp"
+  },
+  {
+    "id": "vi-du-con-ran",
+    "title": "Kinh Ví Dụ Con Rắn",
+    "theme": "allbeings",
+    "art_source": "v2_1_2",
+    "file": "assets/kinh/vi-du-con-ran.webp"
+  },
+  {
+    "id": "vi-du-dau-chan-voi",
+    "title": "Đại Kinh Ví Dụ Dấu Chân Voi",
+    "theme": "allbeings",
+    "art_source": "v2_1_2",
+    "file": "assets/kinh/vi-du-dau-chan-voi.webp"
+  },
+  {
+    "id": "cong-nghiep",
+    "title": "Tiểu Kinh Phân Biệt Nghiệp",
+    "theme": "bodhi",
+    "art_source": "bamboo_path",
+    "file": "assets/kinh/cong-nghiep.webp"
+  },
+  {
+    "id": "lon-cong-nghiep",
+    "title": "Đại Kinh Phân Biệt Nghiệp",
+    "theme": "mindful",
+    "art_source": "bodhi_leaf",
+    "file": "assets/kinh/lon-cong-nghiep.webp"
+  },
+  {
+    "id": "kinh-chau-bau",
+    "title": "Kinh Châu Báu",
+    "theme": "lotus",
+    "art_source": "v1_0_0",
+    "file": "assets/kinh/kinh-chau-bau.webp"
+  },
+  {
+    "id": "kinh-doc-cu",
+    "title": "Kinh Tê Ngưu Một Sừng",
+    "theme": "monk",
+    "art_source": "v1_0_2",
+    "file": "assets/kinh/kinh-doc-cu.webp"
+  },
+  {
+    "id": "bang-cach-song",
+    "title": "Kinh Biết Sống Hiền Lành – Thiện nghiệp",
+    "theme": "family",
+    "art_source": "v2_0_1",
+    "file": "assets/kinh/bang-cach-song.webp"
+  },
+  {
+    "id": "ngu-triet",
+    "title": "Kinh Người Cư Sĩ",
+    "theme": "family",
+    "art_source": "v3_0_1",
+    "file": "assets/kinh/ngu-triet.webp"
+  },
+  {
+    "id": "quy-y",
+    "title": "Kinh Quy Y Tam Bảo – Giá trị của niềm tin",
+    "theme": "buddha",
+    "art_source": "v2_1_2",
+    "file": "assets/kinh/quy-y.webp"
+  },
+  {
+    "id": "bon-phap-vo-luong",
+    "title": "Bốn Tâm Vô Lượng",
+    "theme": "lotus",
+    "art_source": "v2_0_0",
+    "file": "assets/kinh/bon-phap-vo-luong.webp"
+  },
+  {
+    "id": "vo-thuong-tuong",
+    "title": "Kinh Vô Thường",
+    "theme": "bodhi",
+    "art_source": "bodhi_leaf",
+    "file": "assets/kinh/vo-thuong-tuong.webp"
+  },
+  {
+    "id": "truong-bo",
+    "title": "Trường Bộ Kinh (Dīgha Nikāya)",
+    "theme": "scripture",
+    "art_source": "temple_bell",
+    "file": "assets/kinh/truong-bo.webp"
+  },
+  {
+    "id": "trung-bo",
+    "title": "Trung Bộ Kinh (Majjhima Nikāya)",
+    "theme": "scripture",
+    "art_source": "temple_bell",
+    "file": "assets/kinh/trung-bo.webp"
+  },
+  {
+    "id": "tuong-ung-bo",
+    "title": "Tương Ưng Bộ Kinh (Saṁyutta Nikāya)",
+    "theme": "scripture",
+    "art_source": "v3_1_2",
+    "file": "assets/kinh/tuong-ung-bo.webp"
+  },
+  {
+    "id": "tang-chi-bo",
+    "title": "Tăng Chi Bộ Kinh (Aṅguttara Nikāya)",
+    "theme": "scripture",
+    "art_source": "temple_bell",
+    "file": "assets/kinh/tang-chi-bo.webp"
+  },
+  {
+    "id": "tieu-bo",
+    "title": "Tiểu Bộ Kinh (Khuddaka Nikāya)",
+    "theme": "scripture",
+    "art_source": "v3_1_2",
+    "file": "assets/kinh/tieu-bo.webp"
+  }
+]

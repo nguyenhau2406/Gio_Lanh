@@ -1,0 +1,17 @@
+/* Gió Lành 7.13 — viền vàng chuyển theo tab và trạng thái đọc */
+.desktop-nav a[href^="#"]::after {
+  content: "";
+  position: absolute;
+  bottom: -15px;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: var(--gold, #b99555);
+  opacity: 0;
+  transform: scaleX(0);
+  transform-origin: center;
+  transition: opacity .22s ease, transform .22s ease;
+}
+.desktop-nav a.nav-active::after { opacity: 1; transform: scaleX(1); }
+#mobileNav a.nav-active { color: #285037; font-weight: 700; border-bottom-color: #c4a167; }
+@media (prefers-reduced-motion: reduce) { .desktop-nav a[href^="#"]::after { transition: none; } }

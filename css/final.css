@@ -1,0 +1,90 @@
+/* Gió Lành 4.0 · responsive refinement and typography for Vietnamese */
+:root{--sans:Arial,"Segoe UI",Tahoma,sans-serif;--serif:"Times New Roman",Georgia,serif;}
+html{font-synthesis:none;-webkit-text-size-adjust:100%;text-size-adjust:100%;}
+body{font-family:var(--sans);}
+nav a,button,small,label{font-family:var(--sans);}
+h1,h2,h3,h4{font-family:var(--serif);font-style:normal!important;word-break:normal;overflow-wrap:break-word;}
+.container{width:min(1290px,calc(100% - 72px));}
+.site-header{background:rgba(255,254,249,.97);}
+.desktop-nav{gap:17px;}
+.desktop-nav a{font-size:13px;}
+.brand{flex-basis:206px;}.brand img{width:206px;}
+/* Exactly the image chosen by the user; no text or arrows rendered inside the image */
+.hero{height:clamp(600px,44vw,735px);min-height:600px;background:#f9eedf;}
+.hero-slide:first-child{background-position:center center;background-size:cover;}
+.hero-mist{background:linear-gradient(90deg,rgba(255,248,235,.33) 0%,rgba(255,247,232,.10) 45%,transparent 77%);}
+.hero-content{width:min(1290px,calc(100% - 72px));}
+.hero-copy{max-width:640px;padding-top:10px;}
+#heroTitle{font-family:"Times New Roman",Georgia,serif;letter-spacing:-.028em;line-height:1.22;font-size:clamp(50px,4.4vw,72px);}
+#heroTitle em{font-style:normal;font-size:.84em;color:#977044;letter-spacing:-.015em;}
+.hero-copy>p{font-size:16px;line-height:1.9;max-width:510px;}
+.hero-side-tag{right:14px;}
+.hero-controls{bottom:36px;}
+.btn{font-size:13px;}
+/* Daily practice / shortcut cards */
+.daily-path{background:#fbf8ef;padding:90px 0 98px;position:relative;}
+.daily-path-heading{display:flex;align-items:end;justify-content:space-between;gap:20px;margin-bottom:32px;}
+.daily-path-heading h2{margin:0 0 12px;}.daily-path-heading p{font-size:15px;color:#667768;max-width:660px;margin:0;}
+.daily-path-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:17px;}
+.daily-path-card{position:relative;display:flex;flex-direction:column;align-items:flex-start;min-width:0;min-height:270px;text-align:left;background:#fffefa;color:#294633;border:1px solid #e3e7d9;border-radius:16px;padding:27px 23px 24px;box-shadow:0 10px 30px rgba(22,64,35,.04);transition:transform .2s,box-shadow .2s,border-color .2s;}
+.daily-path-card:hover{transform:translateY(-5px);border-color:#b7c9b2;box-shadow:0 14px 36px rgba(22,64,35,.10);}
+.daily-path-symbol{display:grid;place-items:center;width:42px;height:42px;border-radius:50%;color:#ad8247;background:#f7eee0;font-size:27px;margin-bottom:15px;}
+.daily-path-card small{color:#977d52;font-size:11px;font-weight:700;letter-spacing:1px;}
+.daily-path-card strong{font-family:var(--serif);font-size:23px;font-weight:600;line-height:1.27;margin:9px 0 11px;}
+.daily-path-card>span:not(.daily-path-symbol){font-size:13px;line-height:1.7;color:#6b7b6e;}
+.daily-path-card b{font-size:12px;color:#315b3d;margin-top:auto;padding-top:16px;}
+.footer-guidance{max-width:300px}.footer-guidance-link{display:inline-flex;padding:12px 0;font-size:13px;color:#f1d8a3;border-bottom:1px solid #c7ad7c;}
+.footer-guidance small{display:block;line-height:1.6;color:#b5cbb7;font-size:11px;margin-top:15px;}
+/* Improved hit areas and precise type without imposing italic fallback */
+.desktop-nav a,.quick-item strong,.filter-pill,.sutra-card h3,.listen-item strong{letter-spacing:normal;}
+.daily-quote p,#modalTitle,.reader-prose p{font-style:normal!important;}
+#readerScroll,.modal-scroll{overscroll-behavior:contain;}
+@media(max-width:1180px){.container,.hero-content{width:min(1090px,calc(100% - 48px));}.desktop-nav{gap:11px}.desktop-nav a{font-size:11px}.daily-path-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.daily-path-card{min-height:244px}}
+@media(max-width:960px){.hero{height:645px;min-height:645px}.hero-slide:first-child{background-position:57% center}.hero-copy{max-width:540px}.hero h1{font-size:58px}.hero-mist{background:linear-gradient(90deg,rgba(253,247,233,.72),rgba(253,247,233,.27) 65%,transparent)}}
+@media(max-width:650px){
+  .container{width:calc(100% - 34px)}
+  .hero{height:auto;min-height:0;display:flex;flex-direction:column;overflow:hidden;background:#faf4e8;}
+  .hero-slides{position:relative;inset:auto;height:245px;flex:0 0 auto;overflow:hidden;}
+  .hero-slide{background-position:75% 35%!important;background-size:cover!important;transform:none!important;transition:opacity .8s ease!important;}
+  .hero-slide:first-child{background-position:72% 36%!important;}
+  .hero-mist{display:none;}
+  .hero-content{height:auto;min-height:380px;width:calc(100% - 34px);display:block;padding:29px 0 95px;}
+  .hero-copy{max-width:100%;padding:0;}
+  .eyebrow{font-size:9px;letter-spacing:1px;margin-bottom:15px;}
+  #heroTitle{font-size:clamp(38px,9vw,52px);line-height:1.2;letter-spacing:-.024em;margin-bottom:17px;}
+  #heroTitle em{font-size:.83em;}
+  .hero-copy>p{font-size:14px;line-height:1.7;margin-bottom:20px;}
+  .hero-buttons .btn{min-height:43px;padding:11px 12px;font-size:11px;}
+  .hero-small-note{font-size:11px;margin-top:17px;}
+  .hero-controls{left:50%;bottom:23px;gap:13px;}
+  .hero-side-tag,.scroll-hint{display:none;}
+  .daily-path{padding:65px 0 70px;}
+  .daily-path-heading{display:block;margin-bottom:22px;}
+  .daily-path-heading .inline-link{margin-top:17px;}
+  .daily-path-heading p{font-size:14px;}
+  .daily-path-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;}
+  .daily-path-card{min-height:240px;padding:18px 13px 16px;border-radius:12px;}
+  .daily-path-symbol{width:34px;height:34px;font-size:22px;margin-bottom:11px;}
+  .daily-path-card small{font-size:9px;letter-spacing:.3px;}
+  .daily-path-card strong{font-size:18px;line-height:1.28;}
+  .daily-path-card>span:not(.daily-path-symbol){font-size:11px;line-height:1.55;}
+  .daily-path-card b{font-size:11px;}
+  .section-space{padding-block:64px;}
+}
+@media(max-width:360px){.daily-path-grid{grid-template-columns:1fr}.daily-path-card{min-height:0;padding:20px}.hero-slides{height:215px}.hero-content{padding-bottom:93px}}
+@media(prefers-reduced-motion:reduce){.daily-path-card{transition:none!important}}
+/* Tablet landscape/portrait: full-width image band preserves the complete Buddha scene. */
+@media (min-width:651px) and (max-width:960px){
+ .hero{height:auto!important;min-height:0!important;display:flex;flex-direction:column;background:#faf4e8;}
+ .hero-slides{position:relative;inset:auto;height:clamp(290px,42.85vw,410px);flex:0 0 auto;overflow:hidden;}
+ .hero-slide:first-child{background-position:center center!important;background-size:cover!important;transform:none!important;}
+ .hero-slide:nth-child(2)::after,.hero-slide:nth-child(3)::after{width:100%;opacity:1;mask-image:none;-webkit-mask-image:none;background-size:cover;background-position:center;}
+ .hero-mist{display:none;}
+ .hero-content{height:auto;min-height:360px;display:block;padding:38px 0 95px;}
+ .hero-copy{max-width:640px;padding:0;}
+ .hero h1{font-size:clamp(49px,6vw,60px);margin-bottom:18px;}
+ .hero-copy>p{font-size:15px;margin-bottom:20px;}
+ .hero-small-note{margin-top:20px;}
+ .hero-controls{bottom:23px;}
+ .hero-side-tag,.scroll-hint{display:none;}
+}

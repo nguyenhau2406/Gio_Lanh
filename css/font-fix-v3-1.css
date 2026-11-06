@@ -1,0 +1,37 @@
+
+/* Gió Lành 3.1 — Sửa chữ tiếng Việt trên các tiêu đề (05/11/2026)
+ * Chữ Unicode gốc đúng. Không phụ thuộc vào biến thể italic/fallback font không đồng nhất.
+ */
+:root {--serif: 'Noto Serif', 'Times New Roman', serif;
+       --sans: 'Noto Sans', 'Segoe UI', Arial, sans-serif;}
+h1 em, h2 em, h3 em {font-style:normal;}
+#heroTitle {
+  font-family: var(--serif);
+  font-kerning: normal;
+  text-rendering: optimizeLegibility;
+  overflow-wrap: normal;
+  word-break: normal;
+  letter-spacing: -.018em;
+}
+#heroTitle em {
+  font-family: var(--serif);
+  font-style: normal;
+  font-synthesis: none;
+  font-weight: 500;
+  font-size: .84em;
+  letter-spacing: -.02em;
+  white-space: nowrap;
+  display: inline-block;
+  vertical-align: baseline;
+}
+@media(max-width:1180px) {
+  #heroTitle em {font-size:.77em;}
+}
+@media(max-width:650px) {
+  #heroTitle em {
+    font-size:.89em;
+    letter-spacing:-.015em;
+    white-space:normal;
+    display:inline;
+  }
+}

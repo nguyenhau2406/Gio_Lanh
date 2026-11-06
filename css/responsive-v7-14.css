@@ -1,0 +1,197 @@
+/* Gió Lành 7.14 — Tối ưu giao diện điện thoại & máy tính bảng.
+   Chỉ áp dụng ≤1180px, nạp sau cùng; giao diện PC giữ nguyên. */
+
+/* ───────── Chung cho thiết bị cảm ứng ───────── */
+@media (max-width:1180px){
+  html{-webkit-text-size-adjust:100%;text-size-adjust:100%}
+  a,button,select,input,textarea{-webkit-tap-highlight-color:rgba(185,149,85,.18)}
+  img{max-width:100%}
+
+  /* Menu di động: thẻ ô nhẹ nhàng thay cho danh sách gạch chân */
+  .site-header .mobile-nav:not([hidden]){
+    display:grid!important;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;
+    padding:14px clamp(16px,4vw,32px) 18px;
+    max-height:calc(100svh - 110px);overflow-y:auto;overscroll-behavior:contain;
+    background:linear-gradient(180deg,#fffcf4 0%,#f8f2e4 100%);
+    border-top:1px solid #ece4cf;box-shadow:0 18px 30px -18px rgba(38,64,44,.28);
+    animation:glNavIn .24s ease both;
+  }
+  .site-header .mobile-nav a{
+    display:flex;align-items:center;gap:10px;min-height:52px;padding:10px 14px;
+    border:1px solid #e9e0c9;border-radius:14px;background:rgba(255,255,255,.78);
+    color:#33553c;font-size:14.5px;font-weight:600;line-height:1.3;
+    transition:background .18s,border-color .18s,color .18s;
+  }
+  .site-header .mobile-nav a::before{
+    content:"✦";flex:0 0 28px;height:28px;display:grid;place-items:center;border-radius:9px;
+    background:#f3ecd9;color:#a9844b;font-size:12px;
+  }
+  .site-header .mobile-nav a[href="#top"]::before{content:"⌂";font-size:15px}
+  .site-header .mobile-nav a[href="#kinh-dien"]::before{content:"❦"}
+  .site-header .mobile-nav a[href="#nghe-kinh"]::before{content:"♫"}
+  .site-header .mobile-nav a[href="#tung-kinh"]::before{content:"❀"}
+  .site-header .mobile-nav a[href="#phap-thoai"]::before{content:"❧"}
+  .site-header .mobile-nav a[href="#nhac-thien"]::before{content:"♪"}
+  .site-header .mobile-nav a[href="#thien-tap"]::before{content:"☁"}
+  .site-header .mobile-nav a[href="#thu-vien"]::before{content:"▣"}
+  .site-header .mobile-nav a[href="#ve-gio-lanh"]::before{content:"♡"}
+  .site-header .mobile-nav a:active,.site-header .mobile-nav a:hover{background:#fff;border-color:#d8c495}
+  #mobileNav a.nav-active{background:#2f5a3d;border-color:#2f5a3d;color:#fffaf0}
+  #mobileNav a.nav-active::before{background:rgba(255,255,255,.14);color:#e7cf98}
+
+  /* Nút nổi tránh vùng tai thỏ / thanh home */
+  .back-top{right:max(16px,env(safe-area-inset-right));bottom:max(18px,calc(env(safe-area-inset-bottom) + 12px))}
+}
+@keyframes glNavIn{from{opacity:0;transform:translateY(-6px)}to{opacity:1;transform:none}}
+
+/* ───────── Hero: ảnh hòa vào phần chữ (điện thoại + tablet dọc) ───────── */
+@media (max-width:960px){
+  .hero .hero-slides{position:relative;height:clamp(300px,58vw,440px)!important}
+  /* Ảnh 2.33:1 bị cắt ngang khi khung cao hơn — giữ trọn tượng Phật bên phải */
+  .hero .hero-slide:first-child{background-position:90% 38%!important}
+  /* Ảnh tự mờ dần thành trong suốt (mask) thay vì phủ lớp màu lên trên:
+     không còn mép ảnh lộ thành vạch ngang trên màn có tỉ lệ điểm ảnh lẻ. */
+  .hero{background:#faf4e8!important}
+  .hero .hero-slides{
+    -webkit-mask-image:linear-gradient(180deg,#000 0%,#000 56%,rgba(0,0,0,.35) 80%,transparent 97%);
+            mask-image:linear-gradient(180deg,#000 0%,#000 56%,rgba(0,0,0,.35) 80%,transparent 97%);
+  }
+  .hero .hero-slides::after{content:none!important}
+  .hero .hero-content{position:relative;z-index:4;min-height:0!important;margin-top:-64px;padding:0 0 46px!important}
+  .hero .hero-small-note{margin-top:18px}
+}
+@media (min-width:651px) and (max-width:960px){
+  .hero .hero-slides{height:clamp(330px,50vw,470px)!important}
+  .hero .hero-content{margin-top:-84px;padding-bottom:58px!important}
+  .hero .hero-buttons .btn{min-height:50px;padding:13px 22px;font-size:14px}
+  .hero .hero-small-note{font-size:12.5px}
+}
+
+/* ───────── Máy tính bảng (651–1180px) ───────── */
+@media (min-width:651px) and (max-width:1180px){
+  .journey-copy h2{font-size:clamp(34px,4.4vw,44px)!important;line-height:1.25}
+  .closing-inner h2{font-size:clamp(36px,4.8vw,48px)!important}
+  .practice-card{padding:26px 22px 22px}
+  .practice-card h3{font-size:clamp(20px,2.5vw,24px);line-height:1.35}
+  .practice-card p{font-size:13px;line-height:1.75;min-height:0}
+  .practice-card button{min-height:44px}
+  .music-card-content button{min-height:46px}
+  .gk-tabs{scrollbar-width:none}
+  .gk-tabs::-webkit-scrollbar{display:none}
+}
+@media (min-width:651px) and (max-width:960px){
+  /* Footer dễ đọc hơn trên iPad dọc */
+  .footer .footer-main{grid-template-columns:1.2fr 1fr 1fr!important;gap:22px 20px!important;padding:28px 0 22px!important}
+  .footer .footer-guidance{grid-column:1/-1}
+  .footer .footer-about img{width:160px}
+  .footer .footer-about p,.footer .footer-col p{font-size:12.5px;line-height:1.7;max-width:none}
+  .footer .footer-col h4{font-size:11px!important;letter-spacing:1px}
+  .footer .footer-col>a{font-size:13px;padding:6px 0;min-height:36px;display:flex;align-items:center}
+  .footer .footer-bottom{font-size:11.5px;padding:12px 0}
+}
+
+/* ───────── Điện thoại (≤650px) ───────── */
+@media (max-width:650px){
+  .container{width:calc(100% - 32px)}
+  section.section-space{padding-block:52px}
+
+  /* Hero */
+  .hero .eyebrow{font-size:10px;letter-spacing:1.4px}
+  #heroTitle{font-size:clamp(36px,10vw,46px)}
+  .hero-copy>p{font-size:15px!important;line-height:1.75!important;color:#4a5b4f}
+  .hero .hero-buttons{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+  .hero .hero-buttons .btn{justify-content:center;gap:8px;min-height:50px;padding:12px 8px;font-size:13.5px;border-radius:12px;white-space:nowrap}
+  .hero .hero-buttons .btn>span{margin:0!important}
+  .hero .hero-small-note{font-size:12.5px;line-height:1.6}
+
+  /* Tiêu đề mục */
+  .section-heading h2,.music-top h2{font-size:clamp(32px,8.6vw,40px);line-height:1.2}
+  .section-heading p,.music-top p{font-size:14.5px;line-height:1.75}
+  .section-kicker{font-size:10.5px;letter-spacing:1.6px}
+
+  /* Tủ kinh */
+  .gk-stats{gap:6px}
+  .gk-stats span{font-size:12px;padding:5px 10px}
+  .gk-tabs{scrollbar-width:none;scroll-snap-type:x proximity}
+  .gk-tabs::-webkit-scrollbar{display:none}
+  .gk-tabs>*{scroll-snap-align:start}
+  .gk-find input{font-size:16px} /* tránh iOS tự phóng to khi gõ */
+  #globalSearch{font-size:16px}
+
+  /* Tụng niệm */
+  .chant-section .chant-actions{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+  .chant-section .chant-actions .btn{display:inline-flex;align-items:center;justify-content:center;min-height:50px;padding:12px 10px;font-size:14px}
+  #chantText{font-size:16px}
+
+  /* Nhạc thiền: băng chuyền vuốt ngang */
+  .music-grid{
+    display:grid!important;grid-template-columns:none!important;grid-auto-flow:column;grid-auto-columns:80%;
+    gap:14px!important;overflow-x:auto;scroll-snap-type:x mandatory;overscroll-behavior-x:contain;
+    margin:22px -16px 22px!important;padding:2px 16px 8px;scroll-padding-inline:16px;scrollbar-width:none;
+  }
+  .music-grid::-webkit-scrollbar{display:none}
+  .music-card{scroll-snap-align:start;display:flex;flex-direction:column}
+  .music-grid .reveal{opacity:1!important;transform:none!important} /* thẻ ngoài màn hình ngang vẫn hiện */
+  .music-card:hover{transform:none}
+  .music-card img{height:170px!important}
+  .music-card-content{flex:1;display:flex;flex-direction:column;padding:18px 18px 20px!important}
+  .music-card-content h3{font-size:21px!important}
+  .music-card-content p{font-size:13.5px;flex:1}
+  .music-card-content button{min-height:48px;font-size:13px}
+  .ga-cta{flex-wrap:wrap}
+  .ga-cta .btn{width:100%;justify-content:center;min-height:48px}
+
+  /* Hành trình */
+  .journey-photo{max-height:260px;overflow:hidden}
+  .journey-photo img{height:260px;width:100%;object-fit:cover}
+  .journey-copy h2{font-size:clamp(30px,8.2vw,36px)!important;line-height:1.25}
+  .journey-copy .btn{width:100%;justify-content:center;min-height:50px}
+
+  /* Thiền tập: thẻ gọn, biểu tượng bên trái */
+  .practice-grid{gap:12px!important;margin:26px 0 22px!important}
+  .practice-card{
+    display:grid;grid-template-columns:46px 1fr;column-gap:14px;align-items:start;
+    padding:18px 18px 14px!important;border-radius:16px;
+  }
+  .practice-card>*{grid-column:2}
+  .practice-card .practice-icon{
+    grid-column:1;grid-row:1/span 4;width:46px;height:46px;display:grid;place-items:center;
+    border-radius:14px;background:#f4eedd;margin:0;font-size:22px;
+  }
+  .practice-card .practice-no{font-size:10px;letter-spacing:1.4px}
+  .practice-card h3{font-size:20px!important;margin:4px 0 6px!important;line-height:1.35}
+  .practice-card p{font-size:13.5px!important;line-height:1.7;margin:0}
+  .practice-card button{padding:8px 0 4px!important;min-height:42px;font-size:13px!important;text-align:left}
+  .meditation-box{border-radius:18px}
+  .breath-controls select,.breath-controls .btn{min-height:48px;font-size:15px}
+
+  /* Thư viện ảnh */
+  .gallery-nav button{width:44px;height:44px}
+
+  /* Lời kết */
+  .closing-section{padding:60px 0 56px}
+  .closing-inner h2{font-size:clamp(29px,8vw,36px)!important;line-height:1.28}
+  .closing-inner p{font-size:14px;line-height:1.75}
+  .closing-buttons{display:grid!important;grid-template-columns:1fr 1fr;gap:10px}
+  .closing-buttons .btn{justify-content:center;min-height:50px;padding:12px 8px;font-size:13.5px}
+
+  /* Footer: chữ đủ lớn để đọc, vùng chạm ≥ 40px */
+  .footer .footer-main{gap:20px 18px!important;padding:26px 0 18px!important}
+  .footer .footer-about img{width:140px!important}
+  .footer .footer-about p{font-size:12.5px!important;line-height:1.65!important}
+  .footer .footer-col h4{font-size:11px!important;letter-spacing:1px!important;margin-bottom:4px!important}
+  .footer .footer-col>a{font-size:13.5px!important;min-height:40px!important;display:flex;align-items:center;padding:6px 0!important}
+  .footer .footer-guidance p{font-size:12.5px!important;line-height:1.65!important}
+  .footer .footer-bottom{font-size:11.5px!important;line-height:1.6;padding:12px 0 max(14px,env(safe-area-inset-bottom))!important;flex-wrap:wrap}
+}
+
+@media (max-width:339px){
+  .hero .hero-buttons,.closing-buttons,.chant-section .chant-actions{grid-template-columns:1fr}
+  .site-header .mobile-nav a{font-size:13.5px;padding:9px 10px;gap:8px}
+  .site-header .mobile-nav a::before{flex-basis:24px;height:24px}
+  .music-grid{grid-auto-columns:86%}
+}
+
+@media (prefers-reduced-motion:reduce){
+  .site-header .mobile-nav:not([hidden]){animation:none}
+}

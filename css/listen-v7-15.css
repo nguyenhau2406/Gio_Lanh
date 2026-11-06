@@ -1,0 +1,102 @@
+/* Gió Lành 7.15 — Thư viện nghe kinh: trình phát, lời đọc theo câu, danh sách. */
+#glListen{--gl-g:#2f5a3d;--gl-gd:#24482f;--gl-gold:#b48a4c;--gl-line:#ebe8dc;display:flex;flex-direction:column;min-width:0;max-width:100%}
+.listen-layout>*{min-width:0}
+.gl-now,.gl-now-head,.gl-lyrics,#glListen .listen-item{min-width:0;max-width:100%}
+#glListen .listen-list-top span{max-width:60%}
+
+/* ---- Trình phát đang nghe ---- */
+.gl-now{margin:16px 0 8px;padding:18px 18px 16px;border-radius:16px;background:linear-gradient(160deg,#f7f3e7 0%,#f1f4ea 100%);border:1px solid #e6e0cc}
+.gl-now[hidden]{display:none}
+.gl-now-head{display:flex;align-items:center;gap:14px}
+.gl-now-art{width:58px;height:58px;border-radius:12px;object-fit:cover;flex:0 0 auto;box-shadow:0 6px 16px rgba(40,60,40,.15)}
+.gl-now-titles{min-width:0;flex:1;display:flex;flex-direction:column;gap:2px}
+.gl-now-kicker{font-size:10px;font-weight:700;letter-spacing:1.6px;color:var(--gl-gold)}
+.gl-now.is-playing .gl-now-kicker::after{content:" ●";color:#c0553f;animation:glBlink 1.6s ease-in-out infinite}
+.gl-now-title{font-family:var(--serif,'Noto Serif',serif);font-size:19px;font-weight:600;color:var(--gl-gd);line-height:1.3}
+.gl-now-sub{font-size:12px;color:#7d8a7f;line-height:1.4;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.gl-now-src{flex:0 0 auto;align-self:flex-start;font-size:12px;font-weight:600;color:var(--gl-g);padding:6px 10px;border:1px solid #cfd8c6;border-radius:99px;background:#fff;white-space:nowrap}
+.gl-now-src:hover{background:var(--gl-g);color:#fff;border-color:var(--gl-g)}
+.gl-now-summary{margin:12px 0 4px;font-size:13.5px;line-height:1.7;color:#5b6a5e}
+
+.gl-seek{display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:10px;margin-top:10px}
+.gl-time{font-size:12px;font-variant-numeric:tabular-nums;color:#6f7d71;min-width:34px}
+.gl-time-total{text-align:right}
+.gl-seek-range{--p:0%;-webkit-appearance:none;appearance:none;width:100%;height:22px;background:transparent;cursor:pointer;margin:0}
+.gl-seek-range::-webkit-slider-runnable-track{height:5px;border-radius:9px;background:linear-gradient(90deg,var(--gl-g) var(--p),#d9dccd var(--p))}
+.gl-seek-range::-moz-range-track{height:5px;border-radius:9px;background:#d9dccd}
+.gl-seek-range::-moz-range-progress{height:5px;border-radius:9px;background:var(--gl-g)}
+.gl-seek-range::-webkit-slider-thumb{-webkit-appearance:none;width:16px;height:16px;border-radius:50%;background:#fff;border:3px solid var(--gl-g);margin-top:-5.5px;box-shadow:0 2px 6px rgba(0,0,0,.18)}
+.gl-seek-range::-moz-range-thumb{width:12px;height:12px;border-radius:50%;background:#fff;border:3px solid var(--gl-g)}
+.gl-seek-range:focus-visible{outline:2px solid var(--gl-gold);outline-offset:3px;border-radius:9px}
+
+.gl-ctrls{display:flex;align-items:center;justify-content:center;gap:clamp(6px,2vw,14px);margin:8px 0 4px}
+.gl-btn{position:relative;display:grid;place-items:center;width:42px;height:42px;border-radius:50%;border:0;background:transparent;color:var(--gl-gd);cursor:pointer;transition:background .18s,transform .12s}
+.gl-btn:hover{background:rgba(47,90,61,.08)}
+.gl-btn:active{transform:scale(.94)}
+.gl-btn svg{width:22px;height:22px;fill:none;stroke:currentColor;stroke-width:1.9;stroke-linecap:round;stroke-linejoin:round}
+.gl-prev svg,.gl-next svg{fill:currentColor;stroke-width:1.6}
+.gl-btn b{position:absolute;font-size:8.5px;font-weight:700;top:50%;left:50%;transform:translate(-50%,-38%);pointer-events:none}
+.gl-main{width:58px;height:58px;background:var(--gl-g);color:#fff;box-shadow:0 10px 22px -8px rgba(36,72,47,.6)}
+.gl-main:hover{background:var(--gl-gd)}
+.gl-main svg{width:24px;height:24px;fill:currentColor;stroke:none}
+.gl-main .i-pause,.gl-now.is-playing .gl-main .i-play{display:none}
+.gl-now.is-playing .gl-main .i-pause{display:block}
+
+.gl-tools{display:flex;justify-content:center;flex-wrap:wrap;gap:8px;margin:6px 0 2px}
+.gl-chip{font:inherit;font-size:12px;font-weight:600;color:#4b6150;background:#fff;border:1px solid #dcdfd0;border-radius:99px;padding:6px 13px;min-height:32px;cursor:pointer;transition:all .15s}
+.gl-chip:hover{border-color:var(--gl-g);color:var(--gl-g)}
+.gl-auto.on{background:#e7efe0;border-color:#c5d4bb;color:var(--gl-gd)}
+.gl-speed{min-width:52px;font-variant-numeric:tabular-nums}
+
+.gl-lyrics{margin-top:12px;max-height:230px;overflow-y:auto;overscroll-behavior:contain;padding:14px 16px;border-radius:12px;background:rgba(255,255,255,.75);border:1px solid #ece7d7;scroll-behavior:smooth;scrollbar-width:thin;scrollbar-color:#cfc6a9 transparent;-webkit-mask-image:linear-gradient(180deg,transparent 0,#000 14px,#000 calc(100% - 18px),transparent 100%);mask-image:linear-gradient(180deg,transparent 0,#000 14px,#000 calc(100% - 18px),transparent 100%)}
+.gl-lyrics[hidden]{display:none}
+.gl-lyrics section+section{margin-top:12px}
+.gl-lyrics h4{font-family:var(--sans,'Be Vietnam Pro',sans-serif);font-size:10.5px;font-weight:700;letter-spacing:1.4px;text-transform:uppercase;color:var(--gl-gold);margin:0 0 5px}
+.gl-lyrics p{font-family:var(--serif,'Noto Serif',serif);font-size:15px;line-height:1.85;color:#8b968c;margin:0 0 6px}
+.gl-lyrics [data-t]{cursor:pointer;border-radius:5px;transition:color .25s,background .25s}
+.gl-lyrics [data-t]:hover{color:#4f6353}
+.gl-lyrics [data-t].on{color:var(--gl-gd);background:linear-gradient(transparent 58%,rgba(225,196,128,.38) 58%)}
+
+/* ---- Danh sách ---- */
+#glListen .listen-list{margin:8px 0 12px}
+#glListen .listen-item{position:relative;padding:11px 10px;gap:14px;border-radius:12px;cursor:pointer}
+#glListen .listen-item.selected{background:#f1f5ea}
+.listen-thumb{position:relative;flex:0 0 auto;width:60px;height:60px;border-radius:10px;overflow:hidden}
+#glListen .listen-thumb img{width:100%;height:100%;object-fit:cover;border-radius:0}
+.listen-eq{position:absolute;inset:0;display:none;align-items:flex-end;justify-content:center;gap:3px;padding-bottom:14px;background:rgba(24,52,33,.45)}
+.listen-eq i{width:4px;height:14px;border-radius:2px;background:#f5e3b5;animation:glEq 1s ease-in-out infinite;transform-origin:bottom}
+.listen-eq i:nth-child(2){animation-delay:-.35s}.listen-eq i:nth-child(3){animation-delay:-.7s}
+.listen-item.is-playing .listen-eq{display:flex}
+#glListen .listen-item strong{font-size:15px}
+.listen-pali{display:block;font-size:11px!important;color:#9aa39a!important;margin-top:2px!important;font-style:italic;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.listen-meta{display:block;font-size:11.5px!important;margin-top:3px!important;color:#7d8a74!important}
+#glListen .listen-item-play{width:36px;height:36px;font-size:12px}
+#glListen .listen-item.is-playing .listen-item-play{background:var(--gl-g);color:#fff;border-color:var(--gl-g)}
+.listen-item-bar{position:absolute;left:84px;right:10px;bottom:5px;height:2px;border-radius:2px;background:transparent;overflow:hidden}
+.listen-item.selected .listen-item-bar{background:#dfe4d6}
+.listen-item-bar i{display:block;height:100%;width:0;background:var(--gl-gold)}
+
+@keyframes glEq{0%,100%{transform:scaleY(.35)}50%{transform:scaleY(1)}}
+@keyframes glBlink{50%{opacity:.25}}
+
+/* ---- Điện thoại ---- */
+@media (max-width:650px){
+ #glListen{padding:16px 12px 14px}
+ #glListen .listen-list-top span{max-width:none;text-align:left}
+ .gl-now{margin:12px 0 6px;padding:15px 13px 13px}
+ .gl-now-art{width:50px;height:50px}
+ .gl-now-title{font-size:17px}
+ .gl-now-src{padding:6px 9px;font-size:11.5px}
+ .gl-now-summary{font-size:13px}
+ .gl-btn{width:44px;height:44px}
+ .gl-main{width:60px;height:60px}
+ .gl-chip{min-height:36px;padding:7px 13px}
+ .gl-lyrics{max-height:210px;padding:12px 13px}
+ .gl-lyrics p{font-size:15.5px}
+ #glListen .listen-item{padding:10px 6px;gap:11px}
+ .listen-thumb{width:54px;height:54px}
+ #glListen .listen-item strong{font-size:14px}
+ .listen-item-bar{left:71px;right:6px}
+}
+@media (max-width:360px){.gl-now-head{flex-wrap:wrap}.gl-now-src{order:3;margin-left:64px}}
+@media (prefers-reduced-motion:reduce){.listen-eq i,.gl-now.is-playing .gl-now-kicker::after{animation:none}.gl-lyrics{scroll-behavior:auto}}

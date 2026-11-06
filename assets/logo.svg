@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 440 124" role="img" aria-labelledby="title desc">
+<title id="title">Gió Lành — Logo</title><desc id="desc">Hoa sen vàng nâng ánh bình minh và đường cong làn gió xanh, bên cạnh chữ Gió Lành</desc>
+<defs><linearGradient id="gold" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#cda35c"/><stop offset="1" stop-color="#a87c30"/></linearGradient></defs>
+<g transform="translate(7 11)" fill="none" stroke="url(#gold)" stroke-width="3.2" stroke-linejoin="round" stroke-linecap="round">
+<path d="M51 71C28 60 24 42 31 24c16 6 24 19 20 47Z"/><path d="M51 71C42 43 48 27 58 12c16 14 18 35-7 59Z"/><path d="M51 71C76 51 77 33 74 22c-17 3-26 20-23 49Z"/><path d="M49 71C18 67 11 58 7 47c23-1 37 9 42 24Z"/><path d="M54 71c31-4 40-15 43-26-24-2-39 11-43 26Z"/>
+<circle cx="53" cy="46" r="9" fill="#d7b878" stroke="none"/><path d="M48 54c-6 4-7 12-7 14h23c-1-6-5-11-10-14" fill="#bd9550" stroke="none"/>
+<path d="M13 82C34 93 56 91 75 82s27-8 35-3" stroke="#447052" stroke-width="4"/>
+<path d="M19 96c19 6 36 5 52-3" stroke="#7b9a7c" stroke-width="2.4"/>
+</g>
+<text x="125" y="69" font-size="62" font-family="Georgia,'Times New Roman',serif" font-style="italic" font-weight="600" fill="#315c3a" letter-spacing="-2">Gió Lành</text>
+<text x="129" y="95" font-family="Arial,sans-serif" font-size="14" fill="#8d6843" letter-spacing="2.2">PHẬT PHÁP TRONG ĐỜI SỐNG</text>
+</svg>

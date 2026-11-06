@@ -1,0 +1,79 @@
+/* Gió Lành 7.2 — Không gian tụng niệm và phát nguyện. */
+.chant-section{position:relative;overflow:hidden;background:radial-gradient(ellipse at 10% 18%,#fff8e9 0%,transparent 43%),radial-gradient(ellipse at 92% 88%,#dce9da 0%,transparent 54%),linear-gradient(125deg,#f5f4e8 0%,#edf3e8 100%);padding-top:100px;padding-bottom:100px}
+.chant-section:before{content:"";position:absolute;top:0;left:0;width:100%;height:1px;background:linear-gradient(90deg,transparent,#c3ac78,transparent);opacity:.45;pointer-events:none}
+.chant-section .chant-layout{grid-template-columns:minmax(0,.93fr) minmax(0,1.07fr);gap:clamp(34px,5vw,82px);align-items:center;position:relative;z-index:1}
+.chant-section .chant-intro{min-width:0}
+.chant-section .chant-eyebrow{display:flex;align-items:center;gap:12px;color:#a47c3e;letter-spacing:2.15px;font-family:var(--sans, 'Be Vietnam Pro',sans-serif);font-size:11px;font-weight:700;margin-bottom:23px}
+.chant-section .chant-eyebrow img{width:35px;height:35px;object-fit:contain;filter:sepia(.55) saturate(.65)}
+.chant-section .chant-intro h2{font-family:var(--serif,'Noto Serif',serif);font-size:clamp(39px,3.9vw,63px);font-weight:500;letter-spacing:-1.6px;line-height:1.33;color:#284b34;margin:0 0 22px}
+.chant-section .chant-intro h2 em{font-style:normal;color:#a78043}
+.chant-section .chant-intro h2 span{color:#284b34}
+.chant-section .chant-intro>p{font-size:15px;line-height:1.95;max-width:515px;color:#647966;margin:0}
+.chant-section .chant-photo--featured{position:relative;display:block;margin:30px 0 0;padding:0;width:100%;max-width:none;height:auto;aspect-ratio:1.58;overflow:hidden;border-radius:24px;background:#ece8cf;border:5px solid rgba(255,255,250,.9);box-shadow:0 22px 48px rgba(39,72,46,.16),0 0 0 1px rgba(168,139,82,.14)}
+.chant-section .chant-photo--featured img{width:100%;height:100%;display:block;object-fit:cover;object-position:center center;transition:transform .7s ease}
+.chant-section .chant-photo--featured:hover img{transform:scale(1.025)}
+.chant-section .chant-photo--featured:after{content:"";position:absolute;inset:55% 0 0;background:linear-gradient(0deg,rgba(19,48,26,.69),transparent);pointer-events:none}
+.chant-section .chant-photo-caption{position:absolute;bottom:21px;left:22px;right:20px;display:flex;gap:9px;align-items:center;color:#fffdf1;font-size:12px;font-weight:600;letter-spacing:.25px;z-index:2;text-shadow:0 1px 8px rgba(0,0,0,.2)}
+.chant-section .chant-photo-caption .caption-spark{color:#f9d984;font-size:16px}
+.chant-section .chant-mini-verse{font-size:12px;letter-spacing:.7px;color:#7b896e;display:flex;align-items:center;gap:9px;margin-top:19px}
+.chant-section .chant-mini-verse:before{content:"";height:1px;width:29px;background:#ba995a}
+.chant-section .chant-editor{position:relative;padding:clamp(25px,3vw,46px);background:linear-gradient(145deg,#fffefa 0%,#fffdf8 100%);border:1px solid #dbd9c4;border-radius:28px;box-shadow:0 25px 68px rgba(32,65,39,.105),0 2px 10px rgba(32,65,39,.035);min-width:0}
+.chant-section .chant-editor:before{content:"";position:absolute;top:0;left:8%;right:8%;height:3px;border-radius:0 0 6px 6px;background:linear-gradient(90deg,transparent,#c99e53,transparent)}
+.chant-section .chant-editor-head{display:flex;gap:15px;align-items:flex-start;justify-content:space-between;margin-bottom:29px}
+.chant-section .chant-editor-heading{display:flex;align-items:center;gap:12px;min-width:0}
+.chant-section .chant-editor-icon{display:grid;place-items:center;flex:0 0 43px;width:43px;height:43px;border-radius:13px;background:#edf4e9;color:#326343;border:1px solid #dce9d9}
+.chant-section .chant-editor-icon svg{width:26px;height:26px}
+.chant-section .chant-editor-heading small{display:block;letter-spacing:1.6px;color:#ad8a51;font-size:9px;font-weight:700;margin-bottom:3px}
+.chant-section .chant-editor-heading h3{font-family:var(--serif,'Noto Serif',serif);font-size:clamp(19px,2vw,24px);color:#2d5638;font-weight:600;line-height:1.4;margin:0}
+.chant-section .chant-label{flex:0 0 auto;color:#a77c40;border:1px solid #e9dab6;border-radius:100px;padding:7px 11px;background:#fff8e9;font-size:10px;line-height:1.5;white-space:normal;max-width:165px;text-align:center}
+.chant-section .chant-field{margin:0 0 21px}
+.chant-section .chant-editor .chant-field label{display:flex;gap:10px;align-items:center;font-size:13px;font-weight:700;margin:0 0 11px;color:#36553f}
+.chant-section .chant-step{display:inline-grid;place-items:center;background:#edf2e8;color:#658066;border:1px solid #dce6d9;min-width:28px;width:28px;height:28px;border-radius:9px;font-size:11px;letter-spacing:.35px}
+.chant-section .chant-select-wrap{position:relative}
+.chant-section .chant-select-wrap:after{content:"";position:absolute;right:19px;top:calc(50% - 4px);width:9px;height:9px;border-right:2px solid #315b40;border-bottom:2px solid #315b40;transform:rotate(45deg);pointer-events:none}
+.chant-section #chantChoice{appearance:none;-webkit-appearance:none;min-height:56px;width:100%;border:1px solid #cbdac9;border-radius:13px;background:#f4f8f0;padding:13px 50px 13px 17px;color:#304f3a;font-family:var(--sans,'Be Vietnam Pro',sans-serif);font-size:14px;font-weight:500;cursor:pointer}
+.chant-section .chant-text-stage{position:relative}
+.chant-section .chant-text-stage:after{content:"❀";position:absolute;bottom:10px;right:20px;font-size:89px;color:rgba(192,163,102,.11);pointer-events:none;font-family:serif;line-height:1}
+.chant-section #chantText{display:block;box-sizing:border-box;position:relative;z-index:1;width:100%;min-height:285px;max-height:560px;padding:22px 25px;border:1px solid #e3d8b9;border-radius:15px;background:rgba(252,251,244,.72);color:#2d4733;font-family:var(--serif,'Noto Serif',serif);font-size:17px;line-height:2.05;resize:vertical;letter-spacing:.02px}
+.chant-section #chantChoice:focus-visible,.chant-section #chantText:focus-visible{outline:3px solid rgba(181,144,77,.25);outline-offset:2px;border-color:#ba975a}
+.chant-section .chant-actions{display:flex;align-items:center;flex-wrap:wrap;gap:13px;margin:4px 0 20px}
+.chant-section .chant-actions .btn{font-family:var(--sans,'Be Vietnam Pro',sans-serif);font-size:13px;font-weight:700;padding:14px 22px;min-height:49px;border-radius:12px;box-shadow:none}
+.chant-section .chant-actions .btn-primary{background:#2d5a3b;border-color:#2d5a3b;color:white;box-shadow:0 7px 18px rgba(48,88,52,.14)}
+.chant-section .chant-actions .btn-primary:hover{background:#234b30}
+.chant-section .chant-actions .btn-outline{background:#fffef9;color:#365540;border:1px solid #c8d1bd}
+.chant-section .content-note{background:#eff4e9;border-left:3px solid #97b28a;border-radius:0 12px 12px 0;padding:14px 16px;margin:0;color:#5c725d;font-size:12px;line-height:1.85}
+.chant-section .content-note strong{color:#335c3e}
+@media (max-width:1050px){
+ .chant-section{padding-top:75px;padding-bottom:75px}
+ .chant-section .chant-layout{grid-template-columns:1fr;gap:35px}
+ .chant-section .chant-intro{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,.93fr);column-gap:28px;align-items:center}
+ .chant-section .chant-intro .chant-eyebrow{grid-column:1;grid-row:1;align-self:end}
+ .chant-section .chant-intro h2{grid-column:1;grid-row:2;font-size:clamp(36px,4.7vw,54px)}
+ .chant-section .chant-intro>p{grid-column:1;grid-row:3;font-size:14px}
+ .chant-section .chant-photo--featured{grid-column:2;grid-row:1/span 4;align-self:center;aspect-ratio:1.58;min-height:0;margin:0}
+ .chant-section .chant-mini-verse{grid-column:1;grid-row:4;align-self:start}
+ .chant-section .chant-editor{max-width:100%;padding:30px}
+ .chant-section #chantText{min-height:260px}
+}
+@media (max-width:680px){
+ .chant-section{padding:64px 0 68px}
+ .chant-section .chant-layout{display:block}
+ .chant-section .chant-intro{display:block}
+ .chant-section .chant-eyebrow{gap:9px;font-size:10px;letter-spacing:1.5px;margin-bottom:12px}
+ .chant-section .chant-eyebrow img{width:27px;height:27px}
+ .chant-section .chant-intro h2{font-size:clamp(34px,8.8vw,48px);line-height:1.32;letter-spacing:-.8px;margin-bottom:14px}
+ .chant-section .chant-intro>p{font-size:13px;line-height:1.85}
+ .chant-section .chant-photo--featured{width:100%;height:auto;min-height:0;aspect-ratio:1.6;margin:21px 0 0;border-radius:18px;border-width:3px}
+ .chant-section .chant-photo-caption{font-size:10px;left:12px;bottom:11px;right:8px}
+ .chant-section .chant-mini-verse{margin-top:12px;font-size:10px}
+ .chant-section .chant-editor{margin-top:30px;padding:23px 18px 20px;border-radius:20px}
+ .chant-section .chant-editor-head{flex-direction:column;align-items:flex-start;gap:11px;margin-bottom:24px}
+ .chant-section .chant-editor-heading h3{font-size:20px}
+ .chant-section .chant-label{max-width:none;font-size:10px}
+ .chant-section #chantChoice{min-height:53px;font-size:13px}
+ .chant-section #chantText{font-size:16px;line-height:1.95;padding:17px 16px;min-height:260px}
+ .chant-section .chant-actions{flex-wrap:nowrap;gap:9px}
+ .chant-section .chant-actions .btn{font-size:11px;padding:11px 11px;min-height:47px}
+ .chant-section .content-note{font-size:11px;padding:12px 12px;line-height:1.75}
+}
+@media(prefers-reduced-motion:reduce){.chant-section .chant-photo--featured img{transition:none}.chant-section .chant-photo--featured:hover img{transform:none}}

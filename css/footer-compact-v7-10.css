@@ -1,0 +1,60 @@
+/* Gió Lành 7.10 — Chỉ giảm chiều cao footer, không đổi nội dung hoặc chức năng. */
+.footer .footer-main {
+  grid-template-columns: 1.15fr .72fr .82fr .92fr;
+  gap: clamp(17px, 2.4vw, 30px);
+  padding-top: 22px;
+  padding-bottom: 18px;
+  align-items: start;
+}
+.footer .footer-about img { width: 171px; margin-bottom: 6px; }
+.footer .footer-about p {
+  max-width: 232px;
+  margin: 0;
+  font-size: 11px;
+  line-height: 1.65;
+}
+.footer .footer-col h4 {
+  margin: 3px 0 7px;
+  font-size: 10px;
+  line-height: 1.4;
+}
+.footer .footer-col > a {
+  margin: 0;
+  padding: 4px 0;
+  font-size: 11px;
+  line-height: 1.5;
+}
+.footer .footer-col p {
+  margin: 0;
+  font-size: 11px;
+  line-height: 1.65;
+}
+.footer .footer-bottom {padding: 9px 0;line-height:1.5;}
+@media (min-width: 681px) and (max-width: 960px) {
+  .footer .footer-main {grid-template-columns:1fr 1fr 1fr 1fr; gap:15px; padding:22px 0 17px;}
+  .footer .footer-about {grid-column:auto;}
+  .footer .footer-about img {width:min(100%,150px);}
+  .footer .footer-col > a {padding:5px 0;}
+  .footer .footer-col h4{font-size:9.5px;letter-spacing:.8px;}
+}
+@media (max-width: 680px) {
+  .footer .footer-main {
+    grid-template-columns: repeat(2, minmax(0,1fr));
+    gap: 17px 18px;
+    padding-top: 21px;
+    padding-bottom: 16px;
+  }
+  .footer .footer-about {grid-column:1/-1;display:flex;align-items:center;gap:14px;min-width:0;}
+  .footer .footer-about img {width:136px;max-width:44%;flex-shrink:0;margin:0;}
+  .footer .footer-about p {flex:1;margin:0;font-size:10.5px;line-height:1.6;}
+  .footer .footer-col h4{margin:0 0 7px;font-size:10px;letter-spacing:.7px;}
+  .footer .footer-col > a{font-size:11px;min-height:33px;padding:7px 0 5px;line-height:1.45;}
+  .footer .footer-guidance {grid-column:1/-1;max-width:none;}
+  .footer .footer-guidance p {max-width:420px;font-size:10.5px;line-height:1.6;}
+  .footer .footer-bottom {padding:10px 0;font-size:9px;gap:5px;}
+}
+@media (max-width: 355px){
+  .footer .footer-about img{width:116px;}
+  .footer .footer-about p{font-size:10px;}
+  .footer .footer-main{gap:13px 13px;}
+}
