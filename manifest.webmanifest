@@ -1,0 +1,25 @@
+{
+  "name": "Gió Lành — Phật pháp trong đời sống",
+  "short_name": "Gió Lành",
+  "description": "Đọc và nghe kinh, tụng niệm, thiền tập và nuôi dưỡng chánh niệm mỗi ngày.",
+  "lang": "vi",
+  "dir": "ltr",
+  "start_url": "./?source=pwa",
+  "scope": "./",
+  "id": "./",
+  "display": "standalone",
+  "orientation": "any",
+  "background_color": "#faf4e8",
+  "theme_color": "#294b34",
+  "categories": ["books", "education", "lifestyle"],
+  "icons": [
+    { "src": "assets/icons/icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
+    { "src": "assets/icons/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" },
+    { "src": "assets/icons/maskable-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+  ],
+  "shortcuts": [
+    { "name": "Thư viện kinh", "url": "./?go=kinh-dien", "icons": [{ "src": "assets/icons/icon-192.png", "sizes": "192x192" }] },
+    { "name": "Nghe kinh", "url": "./?go=nghe-kinh", "icons": [{ "src": "assets/icons/icon-192.png", "sizes": "192x192" }] },
+    { "name": "Thiền tập", "url": "./?go=thien-tap", "icons": [{ "src": "assets/icons/icon-192.png", "sizes": "192x192" }] }
+  ]
+}

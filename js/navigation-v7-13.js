@@ -1,11 +1,14 @@
-/* Gió Lành 7.13 — Đồng bộ viền vàng theo menu và cuộn về đầu trang. */
+/* Gió Lành 7.13 — Đồng bộ viền vàng theo menu và cuộn về đầu trang.
+   7.17 — Menu PC gộp nhóm xổ xuống (Kinh điển · Tu tập · Khám phá), dùng được bằng chuột, cảm ứng và bàn phím. */
 (function () {
   'use strict';
   function initNavigation() {
     const header = document.querySelector('.site-header');
     const nav = [...document.querySelectorAll('.desktop-nav a[href^="#"], #mobileNav a[href^="#"]')];
-    const primary = [...document.querySelectorAll('.desktop-nav a[href^="#"]')];
-    const sectionIds = primary.map(a=>a.getAttribute('href').slice(1));
+    // Mọi mục có trong menu, xếp theo thứ tự xuất hiện trên trang (menu đã gộp nhóm nên thứ tự khác trang).
+    const sectionIds = [...new Set(nav.map(a=>a.getAttribute('href').slice(1)))]
+      .filter(id => id === 'top' || document.getElementById(id))
+      .sort((a, b) => a === 'top' ? -1 : b === 'top' ? 1 : (document.getElementById(a).compareDocumentPosition(document.getElementById(b)) & 4 ? -1 : 1));
     const sectionSet = new Set(sectionIds);
     let lastActive = '';
     let queued = false;
@@ -22,6 +25,7 @@
         if (active) link.setAttribute('aria-current','location');
         else link.removeAttribute('aria-current');
       });
+      document.querySelectorAll('.nav-group, .mn-group').forEach(g => g.classList.toggle('has-active', !!g.querySelector('a.nav-active')));
     }
 
     function targetByScroll() {
@@ -32,7 +36,7 @@
       for (const id of sectionIds) {
         if (id === 'top') continue;
         const el = document.getElementById(id);
-        if (el && el.getBoundingClientRect().top + window.scrollY <= probe) result = id;
+        if (el && el.getClientRects().length && el.getBoundingClientRect().top + window.scrollY <= probe) result = id;
       }
       return result;
     }
@@ -92,6 +96,39 @@
     if (document.fonts && document.fonts.ready) document.fonts.ready.then(requestRefresh).catch(()=>{});
     requestRefresh();
   }
-  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', initNavigation, {once:true});
-  else initNavigation();
+  function initDropdowns() {
+    const groups = [...document.querySelectorAll('.desktop-nav .nav-group')];
+    if (!groups.length) return;
+    const canHover = window.matchMedia('(hover: hover) and (pointer: fine)');
+    let closeTimer = 0;
+    function setOpen(g, open) {
+      g.classList.toggle('open', open);
+      g.querySelector('.nav-group-btn').setAttribute('aria-expanded', String(open));
+    }
+    const closeAll = except => groups.forEach(g => { if (g !== except) setOpen(g, false); });
+    groups.forEach(g => {
+      const btn = g.querySelector('.nav-group-btn');
+      const links = () => [...g.querySelectorAll('.nav-pop a:not([hidden])')];
+      btn.addEventListener('click', () => { const open = !g.classList.contains('open'); closeAll(g); setOpen(g, open); });
+      g.addEventListener('pointerenter', e => { if (e.pointerType !== 'mouse' || !canHover.matches) return; clearTimeout(closeTimer); closeAll(g); setOpen(g, true); });
+      g.addEventListener('pointerleave', e => { if (e.pointerType !== 'mouse' || !canHover.matches) return; closeTimer = setTimeout(() => setOpen(g, false), 180); });
+      btn.addEventListener('keydown', e => {
+        if (e.key === 'ArrowDown' || e.key === 'Enter' || e.key === ' ') { if (e.key !== 'ArrowDown' && g.classList.contains('open')) return; e.preventDefault(); closeAll(g); setOpen(g, true); const l = links()[0]; l && l.focus(); }
+      });
+      g.querySelector('.nav-pop').addEventListener('keydown', e => {
+        const ls = links(), i = ls.indexOf(document.activeElement);
+        if (e.key === 'ArrowDown') { e.preventDefault(); ls[(i + 1) % ls.length].focus(); }
+        if (e.key === 'ArrowUp') { e.preventDefault(); ls[(i - 1 + ls.length) % ls.length].focus(); }
+        if (e.key === 'Escape') { e.preventDefault(); setOpen(g, false); btn.focus(); }
+      });
+      g.addEventListener('focusout', () => setTimeout(() => { if (!g.contains(document.activeElement)) setOpen(g, false); }, 0));
+      g.querySelectorAll('.nav-pop a').forEach(a => a.addEventListener('click', () => setOpen(g, false)));
+    });
+    document.addEventListener('click', e => { if (!e.target.closest('.nav-group')) closeAll(); });
+    document.addEventListener('keydown', e => { if (e.key === 'Escape') closeAll(); });
+    window.addEventListener('scroll', () => { if (!canHover.matches) closeAll(); }, { passive: true });
+  }
+  function boot() { initNavigation(); initDropdowns(); }
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', boot, {once:true});
+  else boot();
 })();

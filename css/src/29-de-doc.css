@@ -1,0 +1,47 @@
+/* Gió Lành — Chế độ dễ đọc. */
+.a11y-toggle{display:grid!important;place-items:center;min-width:44px;min-height:44px;border-radius:12px;font:inherit;font-family:var(--serif,'Noto Serif',serif);font-size:16px;font-weight:600;color:#2f5a3d;background:transparent;border:1px solid transparent;cursor:pointer}
+.a11y-toggle:hover{border-color:#d8ceb1}
+.a11y-toggle.is-on{background:#2f5a3d;color:#f4dfab}
+.a11y-panel{position:fixed;z-index:1500;top:calc(var(--a11y-top,90px));right:var(--a11y-right,16px);width:min(360px,calc(100vw - 24px));max-height:calc(100vh - 110px);overflow:auto;padding:16px;border-radius:18px;background:#fffdf7;border:1px solid #e6dfc8;box-shadow:0 30px 60px -24px rgba(30,50,32,.45);color:#2f4636}
+.a11y-panel[hidden]{display:none}
+.a11y-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:10px}
+.a11y-head strong{font-family:var(--serif,'Noto Serif',serif);font-size:18px;color:#24452f}
+.a11y-x{width:38px;height:38px;border-radius:50%;border:1px solid #e1dac4;background:#fff;font-size:22px;line-height:1;color:#4a5d4e;cursor:pointer}
+.a11y-row>span{display:block;font-size:11px;font-weight:700;letter-spacing:1.3px;text-transform:uppercase;color:#a8834a;margin-bottom:7px}
+.a11y-seg{display:grid;grid-template-columns:repeat(3,1fr);gap:6px;margin-bottom:12px}
+.a11y-seg button{min-height:46px;border-radius:12px;border:1px solid #dcd4bd;background:#fff;color:#3c5243;font-family:inherit;font-weight:700;cursor:pointer}
+.a11y-seg button.on{background:#2f5a3d;border-color:#2f5a3d;color:#fff}
+.a11y-sw{display:flex;align-items:center;gap:12px;width:100%;text-align:left;padding:11px 12px;margin-bottom:6px;border-radius:12px;border:1px solid #ece5cf;background:#fff;font:inherit;color:inherit;cursor:pointer}
+.a11y-sw b{display:block;font-size:14.5px;color:#24452f}
+.a11y-sw small{display:block;font-size:12.5px;color:#76806f;line-height:1.45}
+.a11y-sw>span{flex:1}
+.a11y-sw i{flex:0 0 44px;height:26px;border-radius:99px;background:#d9d6c8;position:relative;transition:background .2s}
+.a11y-sw i::after{content:"";position:absolute;top:3px;left:3px;width:20px;height:20px;border-radius:50%;background:#fff;box-shadow:0 1px 3px rgba(0,0,0,.25);transition:transform .2s}
+.a11y-sw.on i{background:#2f5a3d}
+.a11y-sw.on i::after{transform:translateX(18px)}
+.a11y-reset{width:100%;margin-top:6px;min-height:42px;border-radius:12px;border:1px dashed #cfc3a0;background:transparent;font:inherit;font-weight:600;color:#6b5a35;cursor:pointer}
+@media (max-width:650px){.a11y-panel{top:auto;bottom:max(12px,env(safe-area-inset-bottom));left:12px;right:12px;width:auto}}
+
+/* ---- Cỡ chữ: phóng cả trang để bố cục giữ tỉ lệ ---- */
+html[data-a11y-zoom] body{zoom:var(--gl-zoom,1)}
+html[data-a11y-zoom] .a11y-panel{zoom:calc(1 / var(--gl-zoom,1))}
+/* Thanh đầu trang giữ cỡ gốc để không tràn trên điện thoại; nội dung bên dưới được phóng to. */
+html[data-a11y-zoom] :is(.topbar,.site-header){zoom:calc(1 / var(--gl-zoom,1))}
+
+/* ---- Tương phản cao ----
+   Dùng filter trên từng vùng (không có phần tử position:fixed nằm bên trong các vùng này),
+   nên chữ mờ đậm lên mà chữ sáng trên nền tối vẫn giữ nguyên. */
+html[data-a11y-contrast] :is(main,footer,.site-header,#gkReader,.modal-panel,.tk-ov,.mala-ov,.gm-ov,.a11y-panel){filter:contrast(1.32) saturate(1.08)}
+html[data-a11y-contrast] :is(main,footer,#gkReader,.modal-panel) :is(p,li,small){font-weight:500}
+html[data-a11y-contrast] :is(a,button,input,select,textarea):focus-visible{outline:3px solid #b8860b!important;outline-offset:2px}
+
+/* ---- Phông chữ đơn giản ---- */
+html[data-a11y-plain] body,html[data-a11y-plain] body *:not(svg):not(svg *){font-family:'Be Vietnam Pro',system-ui,-apple-system,'Segoe UI',Arial,sans-serif!important;font-style:normal!important;letter-spacing:normal!important}
+
+/* ---- Giảm chuyển động ---- */
+html[data-a11y-calm] *,html[data-a11y-calm] *::before,html[data-a11y-calm] *::after{animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.001ms!important;scroll-behavior:auto!important}
+html[data-a11y-calm] .gio-bodhi-rain,html[data-a11y-calm] .gl-close-mandala{display:none!important}
+/* Tương phản cao: nền be nhạt bị đẩy gần thành trắng → thêm viền để các ô vẫn tách bạch */
+html[data-a11y-contrast] :is(.mala-stats>div,.mala-side,.td-card,.lc-list,.lc-cal,.lc-cell:not(.lc-empty),.tk-card,.gl-app,.listen-list-wrap,.gl-now,.practice-card){box-shadow:inset 0 0 0 1px #a89a74!important}
+html[data-a11y-contrast] .mala-week i{background:#8f7f55}
+html[data-a11y-contrast] .mala-week i.today{background:#1f4a2c}

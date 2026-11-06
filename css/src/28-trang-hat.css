@@ -1,0 +1,73 @@
+/* Gió Lành — Chuỗi tràng hạt. */
+.mala-section{background:linear-gradient(180deg,#f6f1e3 0%,#fbf8ef 100%)}
+.mala-app{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,.95fr);gap:28px;align-items:center}
+.mala-stage{display:flex;flex-direction:column;align-items:center;gap:14px}
+.mala-tap{position:relative;width:min(100%,430px);aspect-ratio:320/344;border:0;padding:0;background:none;cursor:pointer;border-radius:40%;-webkit-tap-highlight-color:transparent;touch-action:manipulation;user-select:none}
+.mala-tap:focus-visible{outline:3px solid #b48a4c;outline-offset:6px}
+.mala-ringwrap,.mo-ring{position:absolute;inset:0}
+.mala-svg{width:100%;height:100%;overflow:visible}
+.mala-cord{fill:none;stroke:#c9ab76;stroke-width:1.2;opacity:.6}
+.mala-ring{transform-origin:160px 160px;transition:transform .32s cubic-bezier(.3,.7,.3,1)}
+.mb{fill:url(#mbG);stroke:rgba(80,50,20,.35);stroke-width:.6;transition:opacity .2s}
+.mb.done{opacity:.55}
+.mb.on{fill:url(#mbOn);filter:drop-shadow(0 0 6px rgba(240,200,104,.9))}
+.mala-guru circle{fill:#7d5a2c}.mala-guru-cord{fill:none;stroke:#c9ab76;stroke-width:1.2}.mala-guru path{fill:none;stroke:#b0373a;stroke-width:3;stroke-linecap:round}
+.mala-cursor{fill:none;stroke:#2f5a3d;stroke-width:1.6;stroke-dasharray:3 3;opacity:.75}
+.mala-center,.mo-center{position:absolute;inset:20.5% 22% 25% 22%;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;border-radius:50%;
+  background:radial-gradient(circle,#fffdf6 0%,#f7f0de 70%,transparent 72%)}
+.mala-count{font-family:var(--serif,'Noto Serif',serif);font-size:clamp(54px,8vw,76px);font-weight:500;line-height:1;color:#24452f;font-variant-numeric:tabular-nums}
+.mala-of{font-size:14px;color:#9a8a68;margin-top:2px}
+.mala-phrase{margin-top:10px;max-width:90%;font-family:var(--serif,'Noto Serif',serif);font-size:15px;line-height:1.4;color:#6b5226}
+.mala-hint{margin-top:6px;font-style:normal;font-size:11.5px;color:#a3a08f}
+.mala-tap.pulse .mala-count,.mo-tap.pulse .mo-count{animation:malaPulse .28s ease}
+.mala-app.round .mala-center{animation:malaRound 1.1s ease}
+.mala-quick{display:flex;flex-wrap:wrap;justify-content:center;gap:8px}
+.mala-quick button,.mala-toggles button{font:inherit;font-size:13px;font-weight:600;min-height:40px;padding:8px 14px;border-radius:99px;border:1px solid #dcd4bd;background:#fffdf7;color:#4a5d4e;cursor:pointer}
+.mala-quick button:hover,.mala-toggles button:hover{border-color:#2f5a3d;color:#2f5a3d}
+
+.mala-side{display:flex;flex-direction:column;gap:14px;padding:22px;border-radius:22px;background:#fffdf8;border:1px solid #ebe3cc;box-shadow:0 20px 44px -34px rgba(40,60,35,.5)}
+.mala-field{display:flex;flex-direction:column;gap:7px}
+.mala-field>span{font-size:11px;font-weight:700;letter-spacing:1.3px;text-transform:uppercase;color:#a8834a}
+.mala-sel,.mala-custom{font:inherit;font-size:16px;min-height:46px;padding:10px 12px;border-radius:12px;border:1px solid #dcd4bd;background:#fff;color:#2f4636;width:100%}
+.mala-custom[hidden]{display:none}
+.mala-seg{display:flex;flex-wrap:wrap;gap:6px}
+.mala-seg button{font:inherit;font-size:13px;font-weight:600;min-height:38px;padding:7px 14px;border-radius:10px;border:1px solid #dcd4bd;background:#fff;color:#4a5d4e;cursor:pointer}
+.mala-seg button.on{background:#2f5a3d;border-color:#2f5a3d;color:#fff}
+.mala-toggles{display:flex;flex-wrap:wrap;gap:6px}
+.mala-toggles button.on{background:#ecf2e5;border-color:#c5d4bb;color:#24482f}
+.mala-toggles button:not(.on){color:#9aa093;text-decoration:line-through}
+.mala-stats{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:8px}
+.mala-stats>div{padding:12px;border-radius:14px;background:#f6f2e5}
+.mala-stats span{display:block;font-size:10.5px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:#8d8467}
+.mala-stats b{display:block;font-family:var(--serif,'Noto Serif',serif);font-size:24px;font-weight:600;color:#24452f;font-variant-numeric:tabular-nums}
+.mala-stats small{display:block;font-size:11.5px;color:#7d877c}
+.ms-bar{display:block;height:5px;border-radius:9px;background:#e4ddc8;overflow:hidden;margin-top:6px}
+.ms-bar i{display:block;height:100%;width:0;background:linear-gradient(90deg,#2f5a3d,#b48a4c);transition:width .3s}
+.mala-week{display:grid;grid-template-columns:repeat(7,1fr);gap:6px;height:84px;align-items:end}
+.mala-week span{display:flex;flex-direction:column;align-items:center;justify-content:flex-end;height:100%;gap:4px}
+.mala-week i{display:block;width:100%;max-width:26px;border-radius:6px 6px 2px 2px;background:#d9cfae}
+.mala-week i.today{background:#2f5a3d}
+.mala-week small{font-size:10.5px;color:#8d8467}
+
+/* Toàn màn hình */
+.mala-ov{position:fixed;inset:0;z-index:2000;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;padding:20px;
+  background:radial-gradient(110% 80% at 50% 10%,#3a2c17 0%,#1d1a12 60%,#121410 100%);color:#f3e6c6;cursor:pointer;-webkit-tap-highlight-color:transparent;user-select:none;touch-action:manipulation}
+.mala-ov[hidden]{display:none}
+.mo-x{position:absolute;top:max(14px,env(safe-area-inset-top));right:16px;width:46px;height:46px;border-radius:50%;border:1px solid rgba(240,220,170,.3);background:rgba(255,255,255,.05);color:#f3e6c6;font-size:26px;cursor:pointer}
+.mo-tap{position:relative;width:min(86vw,58vh,500px);aspect-ratio:320/344;border:0;background:none;padding:0;cursor:pointer;border-radius:50%}
+.mo-tap:focus-visible{outline:2px solid #e0bd76;outline-offset:8px}
+.mala-ov .mala-cord{stroke:#8a7347}
+.mala-ov .mala-cursor{stroke:#e0bd76}
+.mo-center{background:radial-gradient(circle,rgba(255,240,200,.08) 0%,transparent 70%)}
+.mo-count{font-family:var(--serif,'Noto Serif',serif);font-size:clamp(64px,12vw,110px);font-weight:500;line-height:1;color:#fff4d6;font-variant-numeric:tabular-nums}
+.mo-of{font-size:16px;color:#bfae88}
+.mo-phrase{margin:6px 0 0;font-family:var(--serif,'Noto Serif',serif);font-size:clamp(20px,3vw,28px);text-align:center;color:#f6e7c1}
+.mo-today{margin:0;font-size:13px;color:#bfae88}
+.mo-hint{position:absolute;bottom:max(16px,env(safe-area-inset-bottom));margin:0;font-size:12px;color:#8f8467}
+
+@keyframes malaPulse{40%{transform:scale(1.12)}}
+@keyframes malaRound{30%{box-shadow:0 0 0 14px rgba(224,189,118,.35)}100%{box-shadow:0 0 0 40px rgba(224,189,118,0)}}
+
+@media (max-width:960px){.mala-app{grid-template-columns:1fr;max-width:560px;margin:0 auto}}
+@media (max-width:650px){.mala-side{padding:16px}.mala-stats b{font-size:20px}.mala-stats{grid-template-columns:1fr 1fr 1fr}.mala-stats>div{padding:10px}}
+@media (prefers-reduced-motion:reduce){.mala-ring{transition:none}.mala-tap.pulse .mala-count,.mala-app.round .mala-center{animation:none}}

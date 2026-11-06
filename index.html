@@ -7,43 +7,30 @@
   <meta name="description" content="Gió Lành — Không gian Phật pháp để đọc và nghe kinh, thực tập tụng niệm, nghe pháp thoại, nhạc thiền và nuôi dưỡng chánh niệm trong đời sống.">
   <title>Gió Lành | Thư viện Phật pháp – đọc kinh, nghe kinh, tụng niệm & nhạc thiền</title>
   <link rel="icon" href="assets/lotus.svg" type="image/svg+xml">
+  <link rel="icon" href="assets/icons/favicon-32.png" sizes="32x32" type="image/png">
+  <link rel="apple-touch-icon" href="assets/icons/apple-touch-icon.png">
+  <link rel="manifest" href="manifest.webmanifest">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-title" content="Gió Lành">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
   <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700&family=Noto+Serif:ital,wght@0,400;0,500;0,600;1,400&display=swap">
-  <link rel="stylesheet" href="css/style.css">
-  <link rel="stylesheet" href="css/media.css">
-<link rel="stylesheet" href="css/reader-v3.css">
+  <link rel="stylesheet" href="css/gio-lanh.css">
+<script>/* Chế độ dễ đọc: áp dụng trước khi vẽ trang để không bị nháy */
+(function(){try{var a=JSON.parse(localStorage.getItem('gl_a11y_v1')||'{}'),h=document.documentElement,z=[1,1.15,1.3][a.size|0]||1;h.style.setProperty('--gl-zoom',z);if(a.size>0)h.setAttribute('data-a11y-zoom','');if(a.contrast)h.setAttribute('data-a11y-contrast','');if(a.plain)h.setAttribute('data-a11y-plain','');if(a.calm)h.setAttribute('data-a11y-calm','')}catch(e){}})();</script>
   <script defer src="js/gio-kinh-registry.js"></script>
 <script defer src="js/main.js"></script>
   <script defer src="js/media.js"></script>
 <script defer src="js/listen-data-v7-15.js"></script>
 <script defer src="js/listen-v7-15.js"></script>
 <script defer src="js/final.js"></script>
-<style>html{font-size:16px}</style>
 <script>/* Tải lại trang luôn về đầu trang (giữ liên kết mở sách #doc/…) */
 (function(){try{if('scrollRestoration' in history)history.scrollRestoration='manual'}catch(e){}
  if(location.hash&&!/^#doc\//.test(location.hash)){try{history.replaceState(null,'',location.pathname+location.search)}catch(e){}}
  var top=function(){window.scrollTo({top:0,left:0,behavior:'instant'})};
  top();document.addEventListener('DOMContentLoaded',top);window.addEventListener('load',top);
  window.addEventListener('pageshow',function(e){if(e.persisted)top()});})();</script>
-  <link rel="stylesheet" href="css/font-fix-v3-1.css">
-<link rel="stylesheet" href="css/font-fix-v3-2.css">
-<link rel="stylesheet" href="css/final.css">
-<link rel="stylesheet" href="css/read-and-images-v4-1.css">
-  <link rel="stylesheet" href="css/gio-intro-v4-2.css">
-<link rel="stylesheet" href="css/gio-reader.css">
-<link rel="stylesheet" href="css/gio-polish.css">
-<link rel="stylesheet" href="css/gio-ambient.css">
-  <link rel="stylesheet" href="css/chant-photo-v7-1.css">
-<link rel="stylesheet" href="css/chant-redesign-v7-2.css">
-<link rel="stylesheet" href="css/talk-redesign-v7-5.css">
-<link rel="stylesheet" href="css/mobile-ipad-v7-6.css">
-<link rel="stylesheet" href="css/footer-compact-v7-10.css">
-<link rel="stylesheet" href="css/bodhi-leaves-v7-11.css">
-  <link rel="stylesheet" href="css/spacing-refine-v7-12.css">
-<link rel="stylesheet" href="css/navigation-v7-13.css">
-<link rel="stylesheet" href="css/responsive-v7-14.css">
-<link rel="stylesheet" href="css/listen-v7-15.css">
-<link rel="stylesheet" href="css/closing-v7-16.css">
 </head>
 <body>
 
@@ -74,8 +61,12 @@
     <div class="container header-inner">
       <a href="#top" class="brand" aria-label="Gió Lành — về trang chủ"><img src="assets/logo.png" alt="Gió Lành — Phật pháp trong đời sống"></a>
       <nav class="desktop-nav" aria-label="Điều hướng chính">
-        <a class="nav-active" href="#top">Trang chủ</a><a href="#kinh-dien">Thư viện kinh</a><a href="#nghe-kinh">Nghe kinh</a><a href="#tung-kinh">Tụng kinh</a><a href="#phap-thoai">Pháp thoại</a><a href="#nhac-thien">Nhạc thiền</a><a href="#thien-tap">Thiền tập</a>
-      </nav>
+        <a class="nav-active" href="#top">Trang chủ</a>
+        <div class="nav-group" data-group="kinh"><button type="button" class="nav-group-btn" aria-expanded="false" aria-controls="np-kinh">Kinh điển<svg class="nav-chev" viewBox="0 0 12 12" aria-hidden="true"><path d="M3 4.5 6 7.5l3-3"/></svg></button><div class="nav-pop" id="np-kinh" role="group" aria-label="Kinh điển"><a href="#kinh-dien"><span class="nav-ic" aria-hidden="true">❦</span><span><b>Thư viện kinh</b><small>63 sách & bài kinh đọc ngay trên trang</small></span></a><a href="#nghe-kinh"><span class="nav-ic" aria-hidden="true">♫</span><span><b>Nghe kinh</b><small>6 bài diễn ý kèm giọng đọc và lời chạy theo câu</small></span></a><a href="#phap-thoai"><span class="nav-ic" aria-hidden="true">❧</span><span><b>Pháp thoại</b><small>Bài chia sẻ Phật pháp trong đời sống</small></span></a><a href="#tu-dien"><span class="nav-ic" aria-hidden="true">✎</span><span><b>Từ điển Phật học</b><small>Gần 150 thuật ngữ, tra nhanh khi đọc kinh</small></span></a></div></div>
+        <div class="nav-group" data-group="tu"><button type="button" class="nav-group-btn" aria-expanded="false" aria-controls="np-tu">Tu tập<svg class="nav-chev" viewBox="0 0 12 12" aria-hidden="true"><path d="M3 4.5 6 7.5l3-3"/></svg></button><div class="nav-pop" id="np-tu" role="group" aria-label="Tu tập"><a href="#thoi-khoa"><span class="nav-ic" aria-hidden="true">☸</span><span><b>Thời khóa tụng niệm</b><small>Tụng theo mõ, chuông — sáng, tối, ngắn</small></span></a><a href="#thien-tap"><span class="nav-ic" aria-hidden="true">☁</span><span><b>Thiền có hướng dẫn</b><small>Thiền 5 · 10 · 20 phút có giọng dẫn</small></span></a><a href="#trang-hat"><span class="nav-ic" aria-hidden="true">◎</span><span><b>Chuỗi tràng hạt</b><small>Đếm niệm Phật 108 hạt, ghi số mỗi ngày</small></span></a><a href="#tung-kinh"><span class="nav-ic" aria-hidden="true">❀</span><span><b>Lời nguyện</b><small>Đọc chậm và phát nguyện mỗi ngày</small></span></a><a href="#nhac-thien"><span class="nav-ic" aria-hidden="true">♪</span><span><b>Nhạc thiền</b><small>Âm nền an nhiên & nhạc YouTube</small></span></a></div></div>
+        <a href="#lich">Lịch Phật giáo <small class="nav-badge" data-lunar-today></small></a>
+        <div class="nav-group" data-group="kham"><button type="button" class="nav-group-btn" aria-expanded="false" aria-controls="np-kham">Khám phá<svg class="nav-chev" viewBox="0 0 12 12" aria-hidden="true"><path d="M3 4.5 6 7.5l3-3"/></svg></button><div class="nav-pop" id="np-kham" role="group" aria-label="Khám phá"><a href="#thu-vien"><span class="nav-ic" aria-hidden="true">▣</span><span><b>Thư viện ảnh</b><small>Khoảnh khắc an nhiên</small></span></a><a href="#ve-gio-lanh"><span class="nav-ic" aria-hidden="true">♡</span><span><b>Về Gió Lành</b><small>Lời nhắn từ Gió Lành</small></span></a><a href="#glApp" data-pwa-only hidden><span class="nav-ic" aria-hidden="true">⬇</span><span><b>Ứng dụng Gió Lành</b><small>Cài lên máy, dùng khi không có mạng</small></span></a></div></div>
+        </nav>
       <div class="header-actions">
         <button class="icon-button search-toggle" id="openSearch" aria-label="Tìm kiếm" title="Tìm kiếm"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.8" cy="10.8" r="6.8"/><path d="m16 16 5 5"/></svg></button>
         <a class="header-cta" href="#doc-kinh">Đọc kinh <span aria-hidden="true">↗</span></a>
@@ -83,7 +74,7 @@
       </div>
     </div>
     <div id="searchPanel" class="search-panel" hidden><div class="container search-panel-inner"><label for="globalSearch">Tìm kinh để đọc</label><div class="search-box"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m16 16 5 5"/></svg><input id="globalSearch" type="search" placeholder="Ví dụ: Từ Bi, Pháp Cú, hơi thở..." autocomplete="off"><button id="searchSubmit" aria-label="Mở kết quả đầu tiên">Tìm kiếm</button></div><ul class="gk-quick" id="globalResults" role="listbox" aria-label="Kết quả tìm kinh"></ul></div></div>
-    <nav id="mobileNav" class="mobile-nav" aria-label="Menu điện thoại" hidden><a href="#top">Trang chủ</a><a href="#kinh-dien">Thư viện kinh</a><a href="#nghe-kinh">Nghe kinh</a><a href="#tung-kinh">Tụng kinh</a><a href="#phap-thoai">Pháp thoại</a><a href="#nhac-thien">Nhạc thiền</a><a href="#thien-tap">Thiền tập</a><a href="#thu-vien">Thư viện ảnh</a><a href="#ve-gio-lanh">Về Gió Lành</a></nav>
+    <nav id="mobileNav" class="mobile-nav" aria-label="Menu điện thoại" hidden><div class="mn-row"><a href="#top">Trang chủ</a><a href="#lich">Lịch Phật giáo <small class="nav-badge" data-lunar-today></small></a></div><div class="mn-group" data-group="kinh"><span class="mn-label">Kinh điển</span><div class="mn-grid"><a href="#kinh-dien"><span class="mn-t">Thư viện kinh</span><small>63 sách & bài kinh đọc ngay trên trang</small></a><a href="#nghe-kinh"><span class="mn-t">Nghe kinh</span><small>6 bài diễn ý kèm giọng đọc và lời chạy theo câu</small></a><a href="#phap-thoai"><span class="mn-t">Pháp thoại</span><small>Bài chia sẻ Phật pháp trong đời sống</small></a><a href="#tu-dien"><span class="mn-t">Từ điển Phật học</span><small>Gần 150 thuật ngữ, tra nhanh khi đọc kinh</small></a></div></div><div class="mn-group" data-group="tu"><span class="mn-label">Tu tập</span><div class="mn-grid"><a href="#thoi-khoa"><span class="mn-t">Thời khóa tụng niệm</span><small>Tụng theo mõ, chuông — sáng, tối, ngắn</small></a><a href="#thien-tap"><span class="mn-t">Thiền có hướng dẫn</span><small>Thiền 5 · 10 · 20 phút có giọng dẫn</small></a><a href="#trang-hat"><span class="mn-t">Chuỗi tràng hạt</span><small>Đếm niệm Phật 108 hạt, ghi số mỗi ngày</small></a><a href="#tung-kinh"><span class="mn-t">Lời nguyện</span><small>Đọc chậm và phát nguyện mỗi ngày</small></a><a href="#nhac-thien"><span class="mn-t">Nhạc thiền</span><small>Âm nền an nhiên & nhạc YouTube</small></a></div></div><div class="mn-group" data-group="kham"><span class="mn-label">Khám phá</span><div class="mn-grid"><a href="#thu-vien"><span class="mn-t">Thư viện ảnh</span><small>Khoảnh khắc an nhiên</small></a><a href="#ve-gio-lanh"><span class="mn-t">Về Gió Lành</span><small>Lời nhắn từ Gió Lành</small></a><a href="#glApp" data-pwa-only hidden><span class="mn-t">Ứng dụng Gió Lành</span><small>Cài lên máy, dùng khi không có mạng</small></a></div></div></nav>
   </header>
   <main id="main">
     <section class="hero" aria-label="Lời chào từ Gió Lành">
@@ -149,6 +140,21 @@
       </div>
     </div></section>
 
+    <section class="tk-section section-space" id="thoi-khoa" aria-labelledby="tkHead">
+      <div class="container">
+        <div class="section-heading reveal"><div><span class="section-kicker">TỤNG NIỆM CÓ HƯỚNG DẪN</span><h2 id="tkHead">Thời khóa <em>mỗi ngày</em></h2><p>Chọn một thời khóa, ngồi xuống và tụng theo. Tiếng mõ giữ nhịp, từng chữ sáng lên theo mỗi tiếng mõ; chuông mở đầu và kết thúc từng bài như trong chánh điện.</p></div><div class="heading-mark"><img src="assets/lotus.svg" alt=""></div></div>
+        <div class="tk-cards" id="tkCards"></div>
+        <p class="tk-foot-note">Lời tụng theo bản phiên âm Hán Việt truyền thống, kèm nghĩa tiếng Việt để hiểu điều mình đang tụng. Tiếng chuông, mõ được tạo trực tiếp trên thiết bị.</p>
+      </div>
+    </section>
+
+    <section class="lc-section section-space" id="lich" aria-labelledby="lcHead">
+      <div class="container">
+        <div class="section-heading reveal"><div><span class="section-kicker">NGÀY LÀNH THÁNG TỐT</span><h2 id="lcHead">Lịch <em>Phật giáo</em></h2><p>Âm lịch hôm nay, ngày sóc vọng, ngày vía chư Phật và Bồ Tát, mùa An cư — kèm gợi ý bài kinh và thời khóa hợp với từng ngày.</p></div><div class="heading-mark"><img src="assets/lotus.svg" alt=""></div></div>
+        <div class="lc-app reveal" id="lichApp"></div>
+      </div>
+    </section>
+
     <section class="dharma-talk-section section-space" id="phap-thoai">
   <div class="container">
     <header class="talk-section-head reveal">
@@ -185,8 +191,23 @@
     <section class="practice-section section-space" id="thien-tap"><div class="container">
       <div class="section-heading centered reveal"><div><span class="section-kicker">MỘT KHOẢNG LẶNG DÀNH RIÊNG CHO BẠN</span><h2>Thiền tập <em>mỗi ngày</em></h2><p>Chỉ vài phút có mặt trọn vẹn cũng giúp ta quay về với giây phút hiện tại.</p></div></div>
       <div class="practice-grid"><article class="practice-card reveal"><span class="practice-icon">☁</span><span class="practice-no">THỰC TẬP 01</span><h3>Thở trong chánh niệm</h3><p>Nhận biết hơi thở vào và hơi thở ra, không cần điều khiển hay cố gắng thay đổi.</p><button data-exercise="breath">Bắt đầu <span>↗</span></button></article><article class="practice-card reveal"><span class="practice-icon">♡</span><span class="practice-no">THỰC TẬP 02</span><h3>Gửi một lời từ ái</h3><p>Nhẹ nhàng chúc cho mình và người xung quanh được bình an, khỏe mạnh.</p><button data-exercise="kindness">Khám phá <span>↗</span></button></article><article class="practice-card reveal"><span class="practice-icon">❀</span><span class="practice-no">THỰC TẬP 03</span><h3>Biết ơn điều bình dị</h3><p>Chú tâm vào ba điều nhỏ bé trong ngày đã mang lại cho bạn nụ cười.</p><button data-exercise="gratitude">Khám phá <span>↗</span></button></article></div>
+      <div class="gm-block reveal"><div class="gm-block-head"><h3>Thiền có hướng dẫn</h3><span>Giọng dẫn nhẹ nhàng · chuông · âm nền</span></div><div class="gm-cards" id="thienApp"></div></div>
       <div class="meditation-box reveal"><div><span class="section-kicker">DỪNG LẠI VÀ THỞ</span><h3>Hãy để tâm mình nghỉ ngơi.</h3><p id="breathGuide">Bấm bắt đầu, hít vào nhẹ nhàng và thở ra thật chậm.</p></div><div class="breath-widget"><div class="breath-circle" id="breathCircle"><span id="breathPhase">An nhiên</span><b id="breathCounter">01:00</b></div><div class="breath-controls"><select id="breathDuration" aria-label="Thời lượng thiền"><option value="60">1 phút</option><option value="180">3 phút</option><option value="300">5 phút</option></select><button id="breathButton" class="btn btn-primary">Bắt đầu</button></div></div></div>
     </div></section>
+
+    <section class="mala-section section-space" id="trang-hat" aria-labelledby="malaHead">
+      <div class="container">
+        <div class="section-heading reveal"><div><span class="section-kicker">NHẤT TÂM NIỆM PHẬT</span><h2 id="malaHead">Chuỗi <em>tràng hạt</em></h2><p>Mỗi lần chạm là một hạt, một câu niệm. Tròn chuỗi có tiếng chuông; số câu niệm mỗi ngày được ghi lại ngay trên máy của bạn.</p></div><div class="heading-mark"><img src="assets/lotus.svg" alt=""></div></div>
+        <div class="mala-app reveal" id="malaApp"></div>
+      </div>
+    </section>
+
+    <section class="td-section section-space" id="tu-dien" aria-labelledby="tdHead">
+      <div class="container">
+        <div class="section-heading reveal"><div><span class="section-kicker">HIỂU ĐỂ THỰC HÀNH</span><h2 id="tdHead">Từ điển <em>Phật học</em></h2><p>Gần 150 thuật ngữ thường gặp trong kinh, giải nghĩa ngắn gọn cho người mới. Khi đọc kinh, chạm vào chữ được gạch chân để xem nghĩa ngay.</p></div><div class="heading-mark"><img src="assets/lotus.svg" alt=""></div></div>
+        <div class="td-app reveal" id="tuDienApp"></div>
+      </div>
+    </section>
 
     <section class="gallery-section section-space" id="thu-vien"><div class="container"><div class="section-heading reveal"><div><span class="section-kicker">GÓC NHÌN CỦA SỰ TĨNH LẶNG</span><h2>Khoảnh khắc <em>an nhiên</em></h2><p>Cùng ngắm vẻ đẹp của hoa sen, ánh sáng và những nơi chốn thanh tịnh.</p></div><div class="gallery-nav"><button id="galleryPrev" aria-label="Ảnh trước">←</button><button id="galleryNext" aria-label="Ảnh tiếp theo">→</button></div></div>
       <div class="gallery-viewport reveal"><div id="galleryTrack" class="gallery-track"><figure><img src="assets/gallery-1.jpg" alt="Mái chùa giữa núi rừng và ánh bình minh" loading="lazy"><figcaption>Thanh âm bình minh <span>01 / 06</span></figcaption></figure><figure><img src="assets/gallery-2.jpg" alt="Tượng Phật thanh tịnh" loading="lazy"><figcaption>Ánh nhìn từ bi <span>02 / 06</span></figcaption></figure><figure><img src="assets/gallery-3.jpg" alt="Hoa sen hồng" loading="lazy"><figcaption>Sen nở trong tâm <span>03 / 06</span></figcaption></figure><figure><img src="assets/gallery-4.jpg" alt="Mái chùa buổi sớm" loading="lazy"><figcaption>Nắng ghé cửa thiền <span>04 / 06</span></figcaption></figure><figure><img src="assets/gallery-5.jpg" alt="Sen hồng nở trên mặt nước" loading="lazy"><figcaption>Hương sen an lành <span>05 / 06</span></figcaption></figure><figure><img src="assets/gallery-6.jpg" alt="Lối tre xanh tĩnh lặng" loading="lazy"><figcaption>Bình yên trong lá <span>06 / 06</span></figcaption></figure></div></div>
@@ -214,7 +235,7 @@
       <a href="#top" class="gl-close-top" aria-label="Trở về đầu trang"><span aria-hidden="true">↑</span> Về đầu trang</a>
     </section>
   </main>
-  <footer class="footer"><div class="container footer-main"><div class="footer-about"><img src="assets/logo.png" alt="Gió Lành"><p>Một nơi để dừng lại, hít thở và nhớ rằng điều lành vẫn luôn hiện hữu quanh ta.</p></div><div class="footer-col"><h4>KHÁM PHÁ</h4><a href="#kinh-dien">Thư viện kinh Phật</a><a href="#nghe-kinh">Nghe kinh và tụng niệm</a><a href="#phap-thoai">Góc pháp thoại</a><a href="#nhac-thien">Nhạc thiền an nhiên</a><a href="#thien-tap">Thiền và chánh niệm</a></div><div class="footer-col"><h4>NGUỒN THAM KHẢO</h4><a href="https://suttacentral.net/" target="_blank" rel="noopener noreferrer">SuttaCentral ↗</a><a href="https://www.thuvienhoasen.org/" target="_blank" rel="noopener noreferrer">Thư Viện Hoa Sen ↗</a><a href="https://suttacentral.net/snp1.8/vi/minh_chau" target="_blank" rel="noopener noreferrer">Kinh Từ Bi ↗</a></div><div class="footer-col footer-guidance"><h4>THỰC TẬP MỖI NGÀY</h4><p>Dành ít phút đọc một bài kinh, lắng nghe hơi thở và hồi hướng những điều thiện lành.</p></div></div></div><div class="container footer-bottom"><span>© 2026 Gió Lành - NTH DEV</span></div></footer>
+  <footer class="footer"><div class="container footer-main"><div class="footer-about"><img src="assets/logo.png" alt="Gió Lành"><p>Một nơi để dừng lại, hít thở và nhớ rằng điều lành vẫn luôn hiện hữu quanh ta.</p></div><div class="footer-col"><h4>KHÁM PHÁ</h4><a href="#kinh-dien">Thư viện kinh Phật</a><a href="#nghe-kinh">Nghe kinh và tụng niệm</a><a href="#phap-thoai">Góc pháp thoại</a><a href="#nhac-thien">Nhạc thiền an nhiên</a><a href="#thien-tap">Thiền và chánh niệm</a></div><div class="footer-col"><h4>NGUỒN THAM KHẢO</h4><a href="https://suttacentral.net/" target="_blank" rel="noopener noreferrer">SuttaCentral ↗</a><a href="https://www.thuvienhoasen.org/" target="_blank" rel="noopener noreferrer">Thư Viện Hoa Sen ↗</a><a href="https://suttacentral.net/snp1.8/vi/minh_chau" target="_blank" rel="noopener noreferrer">Kinh Từ Bi ↗</a></div><div class="footer-col footer-guidance"><h4>THỰC TẬP MỖI NGÀY</h4><p>Dành ít phút đọc một bài kinh, lắng nghe hơi thở và hồi hướng những điều thiện lành.</p></div></div></div><section class="gl-app container" id="glApp" hidden aria-labelledby="glAppTitle"><img class="gl-app-icon" src="assets/icons/icon-192.png" alt="" width="56" height="56"><div class="gl-app-copy"><strong id="glAppTitle">Mang Gió Lành theo bên mình</strong><p class="gl-app-status">Cài lên màn hình chính và lưu kinh để đọc, nghe cả khi không có mạng.</p><div class="gl-app-bar" hidden><i></i></div><p class="gl-app-hint" hidden></p></div><div class="gl-app-actions"><button type="button" class="gl-app-install" hidden>＋ Cài ứng dụng</button><span class="gl-app-installed" hidden>✓ Đã cài trên máy này</span><button type="button" class="gl-app-pack">Tải để dùng khi không có mạng</button></div></section><div class="container footer-bottom"><span>© 2026 Gió Lành - NTH DEV</span></div></footer>
   <div class="floating-player" id="floatingPlayer" hidden role="region" aria-label="Trình phát âm thanh Gió Lành"><div class="floating-player-inner"><div class="floating-art">♫</div><div class="floating-titles"><strong id="floatingTitle">Gió Lành</strong><span id="floatingStatus">Sẵn sàng lắng nghe</span></div><div class="floating-actions"><button id="floatingToggle" aria-label="Tạm dừng hoặc tiếp tục">Ⅱ</button><button id="floatingStop" aria-label="Dừng phát">■</button><label class="floating-volume">Âm lượng <input id="floatingVolume" type="range" min="0" max="100" value="42" aria-label="Âm lượng"></label><button id="floatingClose" aria-label="Đóng trình phát">×</button></div></div></div>
   <button id="backToTop" class="back-top" aria-label="Về đầu trang">↑</button>
   <div class="toast" id="toast" role="status" aria-live="polite"></div>
@@ -236,5 +257,15 @@
 <script defer src="js/bodhi-leaves-v7-11.js"></script>
   <script defer src="js/spacing-refine-v7-12.js"></script>
 <script defer src="js/navigation-v7-13.js"></script>
+<script defer src="js/thoi-khoa-data.js"></script>
+<script defer src="js/thoi-khoa.js"></script>
+<script defer src="js/lich-am.js"></script>
+<script defer src="js/thien-data.js"></script>
+<script defer src="js/thien.js"></script>
+<script defer src="js/trang-hat.js"></script>
+<script defer src="js/tu-dien-data.js"></script>
+<script defer src="js/tu-dien.js"></script>
+<script defer src="js/de-doc.js"></script>
+<script defer src="js/pwa.js"></script>
 </body>
 </html>

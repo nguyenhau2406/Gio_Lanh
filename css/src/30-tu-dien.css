@@ -1,0 +1,42 @@
+/* Gió Lành — Từ điển Phật học. */
+.td-section{background:#fffdf8}
+.td-top{display:flex;flex-wrap:wrap;gap:12px;align-items:center;margin-bottom:16px}
+.td-search{flex:1 1 360px;display:flex;align-items:center;gap:10px;padding:0 16px;min-height:52px;border-radius:16px;background:#fff;border:1px solid #e2dac2;box-shadow:0 10px 26px -22px rgba(40,60,35,.5)}
+.td-search:focus-within{border-color:#2f5a3d;box-shadow:0 0 0 3px rgba(47,90,61,.12)}
+.td-search svg{width:20px;height:20px;fill:none;stroke:#8a9387;stroke-width:2;stroke-linecap:round;flex:0 0 auto}
+.td-search input{flex:1;min-width:0;border:0;outline:0;background:transparent;font:inherit;font-size:16px;color:#24452f}
+.td-groups{display:flex;flex-wrap:wrap;gap:6px}
+.td-groups button{font:inherit;font-size:13px;font-weight:600;min-height:38px;padding:7px 13px;border-radius:99px;border:1px solid #e0d8bf;background:#fff;color:#4a5d4e;cursor:pointer}
+.td-groups button.on{background:#2f5a3d;border-color:#2f5a3d;color:#fff}
+.td-today{padding:18px 22px;border-radius:18px;margin-bottom:14px;background:linear-gradient(120deg,#2b5338,#1f3d2a);color:#f6efdc}
+.td-today span{font-size:10.5px;font-weight:700;letter-spacing:1.8px;color:#e0c486}
+.td-today strong{display:block;font-family:var(--serif,'Noto Serif',serif);font-size:24px;font-weight:600;margin:4px 0 4px;color:#fff7e2}
+.td-today p{margin:0;font-size:14.5px;line-height:1.7;color:#dbe4d6;max-width:820px}
+.td-meta{display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px;align-items:center;margin-bottom:12px;font-size:13px;color:#7d877c}
+.td-sw{display:inline-flex;align-items:center;gap:8px;cursor:pointer}
+.td-sw input{width:18px;height:18px;accent-color:#2f5a3d}
+.td-list{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;max-height:760px;overflow:auto;padding:2px 4px 4px 2px;overscroll-behavior:contain;scrollbar-width:thin;scrollbar-color:#d6cba9 transparent}
+.td-card{position:relative;padding:16px 18px 30px;border-radius:16px;background:#fff;border:1px solid #ece5cf;scroll-margin:120px}
+.td-card.flash{animation:tdFlash 1.6s ease}
+.td-card h3{font-family:var(--serif,'Noto Serif',serif);font-size:18px;font-weight:600;color:#24452f;margin:0 0 4px}
+.td-aka{margin:0 0 6px;font-size:12px;font-style:italic;color:#a08454;line-height:1.5}
+.td-def{margin:0;font-size:14px;line-height:1.7;color:#55645a}
+.td-grp{position:absolute;right:14px;bottom:10px;font-size:10.5px;font-weight:700;letter-spacing:.6px;color:#a8a28c}
+.td-empty{grid-column:1/-1;text-align:center;color:#8a9387;padding:30px 0}
+
+/* Thuật ngữ trong trình đọc kinh */
+.td-term{all:unset;cursor:help;border-bottom:1.5px dotted currentColor;text-decoration:none;opacity:1;border-bottom-color:color-mix(in srgb,currentColor 45%,transparent);transition:background .15s}
+.td-term:hover,.td-term:focus-visible{background:rgba(224,189,118,.25);border-radius:3px}
+.td-term:focus-visible{outline:2px solid #b48a4c;outline-offset:2px}
+.td-pop{position:fixed;z-index:3000;width:min(340px,calc(100vw - 20px));padding:14px 16px;border-radius:16px;background:#fffdf7;border:1px solid #e3dbc3;box-shadow:0 26px 50px -20px rgba(20,35,24,.5);color:#2f4636;font-family:var(--sans,'Be Vietnam Pro',sans-serif)}
+.td-pop[hidden]{display:none}
+.td-pop-h{display:flex;align-items:center;justify-content:space-between;gap:8px}
+.td-pop-h strong{font-family:var(--serif,'Noto Serif',serif);font-size:18px;color:#24452f}
+.td-pop-x{width:34px;height:34px;border-radius:50%;border:1px solid #e1dac4;background:#fff;font-size:20px;line-height:1;cursor:pointer;color:#4a5d4e}
+.td-pop p{margin:6px 0 0;font-size:14px;line-height:1.65;color:#4f5e53}
+.td-pop .td-aka{margin-top:2px}
+.td-pop-more{margin-top:10px;padding:0;border:0;background:none;font:inherit;font-size:13px;font-weight:700;color:#2f5a3d;cursor:pointer}
+
+@keyframes tdFlash{0%,40%{box-shadow:0 0 0 3px rgba(224,189,118,.9)}100%{box-shadow:0 0 0 0 rgba(224,189,118,0)}}
+@media (max-width:960px){.td-list{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:650px){.td-list{grid-template-columns:1fr;max-height:620px}.td-today{padding:16px}.td-today strong{font-size:21px}.td-groups{flex-wrap:nowrap;overflow-x:auto;scrollbar-width:none;margin:0 -16px;padding:0 16px}.td-groups::-webkit-scrollbar{display:none}.td-groups button{flex:0 0 auto}}
