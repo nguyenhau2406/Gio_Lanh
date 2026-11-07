@@ -1,0 +1,39 @@
+/* Gió Lành — Hệ chuyển động chung. Lớp .mo chỉ được JS gắn cho phần tử nằm dưới màn hình lúc tải. */
+.mo-progress{position:fixed;z-index:1600;left:0;top:0;width:100%;height:3px;transform-origin:0 50%;transform:scaleX(0);pointer-events:none;
+  background:linear-gradient(90deg,#2f5a3d,#b48a4c 60%,#e8c987);box-shadow:0 0 8px rgba(224,189,118,.6)}
+
+.mo{opacity:0;transition:opacity .8s cubic-bezier(.2,.7,.2,1) var(--mo-d,0ms),transform .9s cubic-bezier(.2,.7,.2,1) var(--mo-d,0ms),filter .9s ease var(--mo-d,0ms);will-change:opacity,transform}
+.mo-up{transform:translateY(34px)}
+.mo-left{transform:translateX(-26px)}
+.mo-zoom{transform:scale(.94);filter:blur(4px)}
+.mo.mo-in{opacity:1;transform:none;filter:none}
+
+/* Chữ vàng ở tiêu đề ánh lên một lần khi hiện ra */
+.section-heading.mo-in h2 em,.music-top.mo-in h2 em,.talk-section-head.mo-in h2 span{
+  background:linear-gradient(100deg,currentColor 0%,currentColor 40%,#f3dca0 50%,currentColor 60%,currentColor 100%);background-size:250% 100%;
+  -webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;animation:moShine 1.6s ease .35s both}
+@keyframes moShine{from{background-position:100% 0}to{background-position:0 0}}
+
+/* Hoa sen ở tiêu đề: nở rồi đung đưa rất nhẹ */
+.heading-mark img.bloom,.gl-close-kicker img.bloom,.chant-eyebrow img.bloom{animation:moBloom 1.1s cubic-bezier(.3,1.4,.4,1) both,moSway 6s ease-in-out 1.2s infinite}
+@keyframes moBloom{0%{transform:scale(.3) rotate(-25deg);opacity:0}100%{transform:none;opacity:1}}
+@keyframes moSway{0%,100%{transform:rotate(0)}50%{transform:rotate(4deg) translateY(-2px)}}
+
+/* Gợn sáng khi bấm */
+.mo-ripple{position:absolute;border-radius:50%;pointer-events:none;background:radial-gradient(circle,rgba(255,240,200,.55) 0%,rgba(255,240,200,0) 70%);transform:scale(0);animation:moRipple .7s ease-out forwards}
+@keyframes moRipple{to{transform:scale(1);opacity:0}}
+
+/* Cảnh động trên ảnh đầu trang */
+.mo-hero{position:absolute;inset:0;width:100%;height:100%;z-index:2;pointer-events:none}
+.hero .hero-slide.active{animation:moKen 26s ease-in-out infinite alternate}
+@keyframes moKen{from{transform:scale(1)}to{transform:scale(1.06) translate(-1%,-1%)}}
+@media (max-width:960px){.hero .hero-slide.active{animation:none}}
+
+/* Ánh nến nhẹ cho biểu tượng thời khóa, thiền */
+.tk-card-icon,.gm-ic{position:relative}
+.tk-card-icon::after,.gm-ic::after{content:"";position:absolute;inset:-4px;border-radius:inherit;box-shadow:0 0 18px rgba(236,211,154,.45);opacity:0;animation:moGlow 3.6s ease-in-out infinite}
+@keyframes moGlow{50%{opacity:1}}
+
+@media (prefers-reduced-motion:reduce){.mo{opacity:1!important;transform:none!important;filter:none!important}.mo-hero{display:none}}
+html[data-a11y-calm] .mo{opacity:1!important;transform:none!important;filter:none!important}
+html[data-a11y-calm] .mo-hero{display:none}
