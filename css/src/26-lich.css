@@ -99,3 +99,15 @@
   .lc-list{padding:16px 16px}
   .lc-act{flex:1 1 auto;min-height:44px}
 }
+
+/* PC: hai cột luôn cao bằng nhau — lịch tháng giãn ô ngày, cột trái giãn danh sách */
+@media (min-width:961px){
+  .lc-app{align-items:stretch}
+  .lc-col{grid-template-rows:auto 1fr}
+  .lc-list{display:flex;flex-direction:column}
+  .lc-list ol{flex:1;align-content:space-evenly}
+  .lc-cal{display:flex;flex-direction:column}
+  .lc-grid{flex:1;grid-auto-rows:1fr}
+  .lc-cell{aspect-ratio:auto;min-height:54px;height:100%}
+  .lc-empty{min-height:0}
+}

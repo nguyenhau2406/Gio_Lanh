@@ -11,7 +11,7 @@
   const KEY = 'gl_mala_v1', DAYS = 'gl_mala_days_v1';
   const load = (k, d) => { try { return Object.assign(d, JSON.parse(localStorage.getItem(k) || '{}')) } catch (e) { return d } };
   const save = (k, v) => { try { localStorage.setItem(k, JSON.stringify(v)) } catch (e) { } };
-  const st = load(KEY, { phrase: 0, custom: '', size: 108, goal: 1, count: 0, total: 0, vib: true, bell: true, tick: true });
+  const st = load(KEY, { phrase: 0, custom: '', size: 108, goal: 1, count: 0, total: 0, vib: true, bell: true, tick: true, mat: 'go' });
   const days = load(DAYS, {});
   const dayKey = (d = new Date()) => `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}-${String(d.getDate()).padStart(2, '0')}`;
   const phrase = () => st.phrase === -1 ? (st.custom.trim() || 'Câu niệm của bạn') : PHRASES[st.phrase];
@@ -28,28 +28,15 @@
   const tick = () => { tone(1750, .05, .05); tone(880, .04, .08); };
   const bell = () => { [[1, .16, 3.2], [2.32, .08, 2.2], [4.25, .04, 1.3]].forEach(([r, p, d]) => tone(740 * r, p, d)); tone(744, .07, 3); };
 
-  /* ---------- Vẽ tràng hạt ---------- */
-  function beadsSVG(n) {
-    const R = 128, cx = 160, cy = 160, r = n > 60 ? 6.2 : n > 30 ? 9 : 12;
-    let s = '';
-    for (let i = 0; i < n; i++) {
-      const a = (i / n) * Math.PI * 2 - Math.PI / 2;
-      s += `<circle class="mb" data-i="${i}" cx="${(cx + R * Math.cos(a)).toFixed(2)}" cy="${(cy + R * Math.sin(a)).toFixed(2)}" r="${r}"/>`;
-    }
-    return `<svg class="mala-svg" viewBox="0 0 320 344" aria-hidden="true">
-      <defs><radialGradient id="mbG" cx="35%" cy="30%"><stop offset="0" stop-color="#f6dfaa"/><stop offset=".55" stop-color="#b9894a"/><stop offset="1" stop-color="#6e4a22"/></radialGradient>
-      <radialGradient id="mbOn" cx="35%" cy="30%"><stop offset="0" stop-color="#fff6d6"/><stop offset=".5" stop-color="#f0c868"/><stop offset="1" stop-color="#a87728"/></radialGradient></defs>
-      <circle class="mala-cord" cx="160" cy="160" r="128"/>
-      <g class="mala-ring">${s}</g>
-      <g class="mala-guru"><path class="mala-guru-cord" d="M160 ${160 + R + r} V${160 + R + r + 8}"/><circle cx="160" cy="${160 + R + r + 18}" r="10"/><path d="M160 ${160 + R + r + 28}v8m-5-3 5 9 5-9"/></g>
-      <circle class="mala-cursor" cx="160" cy="32" r="${r + 5}"/>
-    </svg>`;
-  }
+  /* ---------- Vẽ tràng hạt: bộ vẽ 3D trong js/mala-3d.js ---------- */
+  const MATS = window.GioMala3D ? window.GioMala3D.MATS : {};
+  if (!MATS[st.mat]) st.mat = 'go';
+  const placeCenter = el => ({ cx, cy, rx, ry }) => { Object.assign(el.style, { left: (cx - rx * .78) + 'px', top: (cy - ry * .82) + 'px', width: (rx * 1.56) + 'px', height: (ry * 1.64) + 'px' }); };
 
   root.innerHTML = `
    <div class="mala-stage">
      <button type="button" class="mala-tap" aria-label="Lần một hạt">
-       <span class="mala-ringwrap"></span>
+       <canvas class="mala-cv" aria-hidden="true"></canvas>
        <span class="mala-center"><b class="mala-count" aria-live="polite">0</b><small class="mala-of">/ 108</small><span class="mala-phrase"></span><em class="mala-hint">Chạm để lần hạt</em></span>
      </button>
      <div class="mala-quick"><button type="button" class="mala-undo" aria-label="Lùi lại một hạt">↶ Lùi 1</button><button type="button" class="mala-full" aria-label="Mở toàn màn hình">⛶ Toàn màn hình</button><button type="button" class="mala-reset">↺ Chuỗi mới</button></div>
@@ -57,6 +44,7 @@
    <div class="mala-side">
      <label class="mala-field"><span>Câu niệm</span><select class="mala-sel">${PHRASES.map((p, i) => `<option value="${i}">${esc(p)}</option>`).join('')}<option value="-1">Tự nhập…</option></select></label>
      <input class="mala-custom" type="text" maxlength="60" placeholder="Nhập câu niệm của bạn" hidden>
+     <div class="mala-field"><span>Chất liệu hạt</span><div class="mala-mats">${Object.entries(MATS).map(([k, m]) => `<button type="button" data-mat="${k}" style="--sw1:${m.base[0]};--sw2:${m.base[1]};--sw3:${m.base[2]}"><i aria-hidden="true"></i>${esc(m.name)}</button>`).join('')}</div></div>
      <div class="mala-field"><span>Số hạt mỗi chuỗi</span><div class="mala-seg">${SIZES.map(n => `<button type="button" data-size="${n}">${n}</button>`).join('')}</div></div>
      <div class="mala-field"><span>Mục tiêu mỗi ngày</span><div class="mala-seg mala-goal">${[1, 3, 5, 10].map(n => `<button type="button" data-goal="${n}">${n} chuỗi</button>`).join('')}</div></div>
      <div class="mala-toggles"><button type="button" data-t="tick">Tiếng hạt</button><button type="button" data-t="bell">Chuông tròn chuỗi</button><button type="button" data-t="vib">Rung</button></div>
@@ -69,17 +57,16 @@
    </div>`;
 
   const E = { tap: $('.mala-tap'), wrap: $('.mala-ringwrap'), count: $('.mala-count'), of: $('.mala-of'), ph: $('.mala-phrase'), sel: $('.mala-sel'), custom: $('.mala-custom') };
-  let ring = null, beads = [];
+  let mala = null, malaOv = null;
   function build() {
-    E.wrap.innerHTML = beadsSVG(st.size);
-    ring = $('.mala-ring'); beads = [...root.querySelectorAll('.mb')];
     st.count = Math.min(st.count, st.size - 1);
+    if (!mala && window.GioMala3D) mala = new window.GioMala3D($('.mala-cv'), { onLayout: placeCenter($('.mala-center')) });
+    mala && mala.set({ n: st.size, count: st.count, mat: st.mat }, false);
   }
   function render(animate = true) {
     const n = st.size, c = st.count;
-    ring.style.transition = animate ? '' : 'none';
-    ring.style.transform = `rotate(${-(c / n) * 360}deg)`;
-    beads.forEach((b, i) => { b.classList.toggle('done', i < c); b.classList.toggle('on', i === c); });
+    [mala, ov && !ov.hidden ? malaOv : null].forEach(r => r && r.set({ n, count: c, mat: st.mat }, animate));
+    root.querySelectorAll('[data-mat]').forEach(b => { const on = b.dataset.mat === st.mat; b.classList.toggle('on', on); b.setAttribute('aria-pressed', String(on)); });
     E.count.textContent = c; E.of.textContent = '/ ' + n; E.ph.textContent = phrase();
     E.sel.value = String(st.phrase); E.custom.hidden = st.phrase !== -1; E.custom.value = st.custom;
     root.querySelectorAll('[data-size]').forEach(b => b.classList.toggle('on', Number(b.dataset.size) === n));
@@ -129,21 +116,21 @@
   function openFull() {
     if (!ov) {
       ov = document.createElement('div'); ov.className = 'mala-ov'; ov.setAttribute('role', 'dialog'); ov.setAttribute('aria-modal', 'true'); ov.setAttribute('aria-label', 'Lần tràng hạt toàn màn hình');
-      ov.innerHTML = `<button type="button" class="mo-x" aria-label="Thoát toàn màn hình">×</button><button type="button" class="mo-tap" aria-label="Lần một hạt"><span class="mo-ring"></span><span class="mo-center"><b class="mo-count">0</b><small class="mo-of"></small></span></button><p class="mo-phrase"></p><p class="mo-today"></p><p class="mo-hint">Chạm bất cứ đâu để lần hạt · Esc để thoát</p>`;
+      ov.innerHTML = `<button type="button" class="mo-x" aria-label="Thoát toàn màn hình">×</button><button type="button" class="mo-tap" aria-label="Lần một hạt"><canvas class="mo-cv" aria-hidden="true"></canvas><span class="mo-center"><b class="mo-count">0</b><small class="mo-of"></small></span></button><p class="mo-phrase"></p><p class="mo-today"></p><p class="mo-hint">Chạm bất cứ đâu để lần hạt · Esc để thoát</p>`;
       document.body.appendChild(ov);
       ov.addEventListener('click', e => { if (e.target.closest('.mo-x')) return closeFull(); step(1); pulse(ov.querySelector('.mo-tap')); });
       ov.addEventListener('keydown', e => { if (e.key === 'Escape') closeFull(); else if ([' ', 'Enter', 'ArrowRight'].includes(e.key)) { e.preventDefault(); step(1); } else if (e.key === 'ArrowLeft' || e.key === 'Backspace') step(-1); });
     }
-    const svg = E.wrap.querySelector('svg').cloneNode(true); ov.querySelector('.mo-ring').replaceChildren(svg);
-    ring = svg.querySelector('.mala-ring'); beads = [...svg.querySelectorAll('.mb')];
-    ov.hidden = false; document.documentElement.classList.add('tk-open'); renderOv(); render(false);
+    ov.hidden = false;
+    if (!malaOv && window.GioMala3D) malaOv = new window.GioMala3D(ov.querySelector('.mo-cv'), { onLayout: placeCenter(ov.querySelector('.mo-center')) });
+    malaOv && malaOv.set({ n: st.size, count: st.count, mat: st.mat }, false); document.documentElement.classList.add('tk-open'); renderOv(); render(false);
     try { wake = null; navigator.wakeLock && navigator.wakeLock.request('screen').then(w => wake = w).catch(() => 0); } catch (e) { }
     ov.querySelector('.mo-tap').focus({ preventScroll: true });
   }
   let wake = null;
   function closeFull() {
     ov.hidden = true; document.documentElement.classList.remove('tk-open'); wake && wake.release().catch(() => 0);
-    ring = $('.mala-ring'); beads = [...root.querySelectorAll('.mb')]; render(false); E.tap.focus({ preventScroll: true });
+    render(false); E.tap.focus({ preventScroll: true });
   }
   const pulse = el => { el.classList.remove('pulse'); void el.offsetWidth; el.classList.add('pulse'); };
 
@@ -156,6 +143,7 @@
   E.sel.addEventListener('change', () => { st.phrase = Number(E.sel.value); persist(); render(); if (st.phrase === -1) E.custom.focus(); });
   E.custom.addEventListener('input', () => { st.custom = E.custom.value; persist(); E.ph.textContent = phrase(); });
   root.querySelectorAll('[data-size]').forEach(b => b.addEventListener('click', () => { st.size = Number(b.dataset.size); st.count = 0; persist(); build(); render(false); }));
+  root.querySelectorAll('[data-mat]').forEach(b => b.addEventListener('click', () => { st.mat = b.dataset.mat; persist(); render(false); }));
   root.querySelectorAll('[data-goal]').forEach(b => b.addEventListener('click', () => { st.goal = Number(b.dataset.goal); persist(); render(); }));
   root.querySelectorAll('[data-t]').forEach(b => b.addEventListener('click', () => { st[b.dataset.t] = !st[b.dataset.t]; persist(); render(); }));
 

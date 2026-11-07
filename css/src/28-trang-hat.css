@@ -2,9 +2,9 @@
 .mala-section{background:linear-gradient(180deg,#f6f1e3 0%,#fbf8ef 100%)}
 .mala-app{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,.95fr);gap:28px;align-items:center}
 .mala-stage{display:flex;flex-direction:column;align-items:center;gap:14px}
-.mala-tap{position:relative;width:min(100%,430px);aspect-ratio:320/344;border:0;padding:0;background:none;cursor:pointer;border-radius:40%;-webkit-tap-highlight-color:transparent;touch-action:manipulation;user-select:none}
+.mala-tap{position:relative;width:min(100%,600px);aspect-ratio:1/.8;border:0;padding:0;background:none;cursor:pointer;border-radius:28px;-webkit-tap-highlight-color:transparent;touch-action:manipulation;user-select:none}
 .mala-tap:focus-visible{outline:3px solid #b48a4c;outline-offset:6px}
-.mala-ringwrap,.mo-ring{position:absolute;inset:0}
+.mala-cv,.mo-cv{position:absolute;inset:0;width:100%;height:100%;display:block}
 .mala-svg{width:100%;height:100%;overflow:visible}
 .mala-cord{fill:none;stroke:#c9ab76;stroke-width:1.2;opacity:.6}
 .mala-ring{transform-origin:160px 160px;transition:transform .32s cubic-bezier(.3,.7,.3,1)}
@@ -13,9 +13,9 @@
 .mb.on{fill:url(#mbOn);filter:drop-shadow(0 0 6px rgba(240,200,104,.9))}
 .mala-guru circle{fill:#7d5a2c}.mala-guru-cord{fill:none;stroke:#c9ab76;stroke-width:1.2}.mala-guru path{fill:none;stroke:#b0373a;stroke-width:3;stroke-linecap:round}
 .mala-cursor{fill:none;stroke:#2f5a3d;stroke-width:1.6;stroke-dasharray:3 3;opacity:.75}
-.mala-center,.mo-center{position:absolute;inset:20.5% 22% 25% 22%;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;border-radius:50%;
-  background:radial-gradient(circle,#fffdf6 0%,#f7f0de 70%,transparent 72%)}
-.mala-count{font-family:var(--serif,'Noto Serif',serif);font-size:clamp(54px,8vw,76px);font-weight:500;line-height:1;color:#24452f;font-variant-numeric:tabular-nums}
+.mala-center,.mo-center{position:absolute;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;border-radius:50%;
+  background:radial-gradient(closest-side,rgba(255,253,246,.92) 0%,rgba(247,240,222,.6) 70%,transparent 100%);pointer-events:none}
+.mala-count{font-family:var(--serif,'Noto Serif',serif);font-size:clamp(46px,7vw,70px);font-weight:500;line-height:1;color:#24452f;font-variant-numeric:tabular-nums}
 .mala-of{font-size:14px;color:#9a8a68;margin-top:2px}
 .mala-phrase{margin-top:10px;max-width:90%;font-family:var(--serif,'Noto Serif',serif);font-size:15px;line-height:1.4;color:#6b5226}
 .mala-hint{margin-top:6px;font-style:normal;font-size:11.5px;color:#a3a08f}
@@ -54,7 +54,7 @@
   background:radial-gradient(110% 80% at 50% 10%,#3a2c17 0%,#1d1a12 60%,#121410 100%);color:#f3e6c6;cursor:pointer;-webkit-tap-highlight-color:transparent;user-select:none;touch-action:manipulation}
 .mala-ov[hidden]{display:none}
 .mo-x{position:absolute;top:max(14px,env(safe-area-inset-top));right:16px;width:46px;height:46px;border-radius:50%;border:1px solid rgba(240,220,170,.3);background:rgba(255,255,255,.05);color:#f3e6c6;font-size:26px;cursor:pointer}
-.mo-tap{position:relative;width:min(86vw,58vh,500px);aspect-ratio:320/344;border:0;background:none;padding:0;cursor:pointer;border-radius:50%}
+.mo-tap{position:relative;width:min(92vw,80vh,760px);aspect-ratio:1/.8;border:0;background:none;padding:0;cursor:pointer;border-radius:50%}
 .mo-tap:focus-visible{outline:2px solid #e0bd76;outline-offset:8px}
 .mala-ov .mala-cord{stroke:#8a7347}
 .mala-ov .mala-cursor{stroke:#e0bd76}
@@ -71,3 +71,12 @@
 @media (max-width:960px){.mala-app{grid-template-columns:1fr;max-width:560px;margin:0 auto}}
 @media (max-width:650px){.mala-side{padding:16px}.mala-stats b{font-size:20px}.mala-stats{grid-template-columns:1fr 1fr 1fr}.mala-stats>div{padding:10px}}
 @media (prefers-reduced-motion:reduce){.mala-ring{transition:none}.mala-tap.pulse .mala-count,.mala-app.round .mala-center{animation:none}}
+
+/* Chất liệu hạt */
+.mala-mats{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:6px}
+.mala-mats button{display:flex;align-items:center;gap:9px;min-height:44px;padding:6px 10px;border-radius:12px;border:1px solid #dcd4bd;background:#fff;font:inherit;font-size:13px;font-weight:600;color:#4a5d4e;cursor:pointer;text-align:left}
+.mala-mats button i{flex:0 0 24px;height:24px;border-radius:50%;background:radial-gradient(circle at 35% 30%,var(--sw1) 0%,var(--sw2) 55%,var(--sw3) 100%);box-shadow:inset -2px -3px 5px rgba(0,0,0,.25),0 2px 4px rgba(0,0,0,.15)}
+.mala-mats button.on{border-color:#2f5a3d;box-shadow:inset 0 0 0 1px #2f5a3d;color:#24452f;background:#f4f8ef}
+.mala-stage{position:relative}
+.mala-tap::before{content:"";position:absolute;inset:6% 2% 0;border-radius:50%;background:radial-gradient(closest-side,rgba(160,120,60,.10),transparent 75%);pointer-events:none}
+.mo-center{background:none}

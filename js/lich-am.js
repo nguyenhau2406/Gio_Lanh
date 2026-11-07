@@ -207,7 +207,7 @@
       ${x.special ? `<strong class="lc-pick-t">✦ ${esc(labelOf(x))}</strong><p>${esc(sg ? sg.note : '')}</p>${actions(sg)}` : '<p class="lc-pick-n">Một ngày bình thường — hãy dành vài phút cho hơi thở và lời kinh.</p>'}`;
   }
   function list() {
-    const xs = upcoming(addDays(today, 1), 8).filter(x => x.feasts.length || x.vong || x.soc);
+    const xs = upcoming(addDays(today, 1), 5).filter(x => x.feasts.length || x.vong || x.soc);
     return `<div class="lc-list"><h3>Ngày lễ sắp tới</h3><ol>${xs.map(x => {
       const days = Math.round((x.date - today) / 864e5);
       return `<li class="${x.feasts.some(f => f.big) ? 'big' : ''}"><span class="lc-li-date"><b>${x.date.getDate()}</b>${'Th' + (x.date.getMonth() + 1)}</span><span class="lc-li-copy"><strong>${esc(labelOf(x))}</strong><small>${x.L.d}/${x.L.m} âm lịch · ${days === 1 ? 'ngày mai' : 'còn ' + days + ' ngày'}</small></span></li>`;
